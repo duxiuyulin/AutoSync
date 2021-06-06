@@ -22,6 +22,8 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [];
 let linkId = 'YhCkrVusBVa_O2K-7xE6hA';
+//#设置大于指定红包金额提现
+//默认大于0.3提现   需要调整添加参数  export JD_RED_PACKET_VAL=0.5 自用0.5 一般到手0.64大于0.64容易没
 let redPacketVal = 0.3;
 let rewardValue = 0;
 let txId = 0;
@@ -75,7 +77,7 @@ if ($.isNode()) {
             }
             await gamblePrizeList();
             await takePostRequest('gambleOpenReward');
-            for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < 10; j++) {
                 if (taskStatus) {
                     await $.wait(2000)
                     await takePostRequest('gambleChangeReward');
