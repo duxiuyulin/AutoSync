@@ -7,14 +7,14 @@
 =================================Quantumultx=========================
 [task_local]
 #翻翻乐提现
-5,35 * * 6 * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js, tag=翻翻乐提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+5,35 3-23 * 6 * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js, tag=翻翻乐提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "5,35 * * 6 *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js,tag=翻翻乐提现
+cron "5,35 3-23 * 6 *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js,tag=翻翻乐提现
 ===================================Surge================================
-翻翻乐提现 = type=cron,cronexp="5,35 * * 6 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js
+翻翻乐提现 = type=cron,cronexp="5,35 3-23 * 6 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js
 ====================================小火箭=============================
-翻翻乐提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js, cronexpr="5,35 * * 6 *", timeout=3600, enable=true
+翻翻乐提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ffl.js, cronexpr="5,35 3-23 * 6 *", timeout=3600, enable=true
  */
 const $ = new Env('翻翻乐提现');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -22,6 +22,8 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [];
 let linkId = 'YhCkrVusBVa_O2K-7xE6hA';
+//#设置大于指定红包金额提现
+//默认大于0.3提现   需要调整添加参数  export JD_RED_PACKET_VAL=0.5 自用0.5 一般到手0.64大于0.64容易没
 let redPacketVal = 0.3;
 let rewardValue = 0;
 let txId = 0;
@@ -65,7 +67,6 @@ if ($.isNode()) {
             $.hotFlag = false; //是否火爆
             await TotalBean();
             console.log(`\n*****开始【京东账号${$.index}】${$.nickName || $.UserName}*****\n`);
-            console.log(`\n如有未完成的任务，请多执行几次\n`);
             if (!$.isLogin) {
                 $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
                 if ($.isNode()) {
@@ -75,7 +76,7 @@ if ($.isNode()) {
             }
             await gamblePrizeList();
             await takePostRequest('gambleOpenReward');
-            for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < 10; j++) {
                 if (taskStatus) {
                     await $.wait(2000)
                     await takePostRequest('gambleChangeReward');
