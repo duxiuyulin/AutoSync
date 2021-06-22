@@ -1,21 +1,21 @@
 /*
 极速版签到加速提现
 活动地址: 京东极速版-签到提现
-脚本说明: （会消耗京东极速版金币-最多3*600）,需要保留金币请屏蔽脚本调用  为避免调用加速造成无法实现,16点补偿一次,如依旧无法加速可手动调整执行时间
+脚本说明: （会消耗京东极速版金币-最多3*600）,需要保留金币请屏蔽脚本调用  为避免调用加速造成无法实现,16/20点补偿,如依旧限流无法加速可手动调整执行时间
 活动时间：
 更新时间：2021-06-19
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
 #翻翻乐提现
-15 10,16 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js, tag=翻翻乐提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+15 10,16,20 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js, tag=翻翻乐提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "15 10,16 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js,tag=翻翻乐提现
+cron "15 10,16,20 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js,tag=翻翻乐提现
 ===================================Surge================================
-翻翻乐提现 = type=cron,cronexp="15 10,16 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js
+翻翻乐提现 = type=cron,cronexp="15 10,16,20 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js
 ====================================小火箭=============================
-翻翻乐提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js, cronexpr="15 10,16 * * *", timeout=3600, enable=true
+翻翻乐提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_SpeedUp.js, cronexpr="15 10,16,20 * * *", timeout=3600, enable=true
  */
 const $ = new Env('极速版签到加速提现');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -65,6 +65,7 @@ if ($.isNode()) {
                 }
                 continue
             }
+            console.log(`\n*****加速存在接口限流,提示拥堵请手动执行*****\n`);
             await speedUp();
 
             for (let j = 0; j < 3; j++) {
