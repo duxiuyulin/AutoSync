@@ -58,26 +58,17 @@ const JD_API_HOST = 'https://car-member.jd.com/api/';
         continue
       }
       await jdCar();
-    }
-  }
-  console.log(helpInfo)
-  // return
-  for (let i = 0; i < cookiesArr.length; i++) {
-    if (cookiesArr[i]) {
-        cookie = cookiesArr[i];
-        $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-        for (let helpItem in helpInfo) {
-            $.groupCode = helpInfo[helpItem].groupCode
-            $.shareCode = helpInfo[helpItem].shareCode
-            $.activityId = helpInfo[helpItem].activityId
-            if ($.UserName === helpItem) {
-                console.log(`${$.UserName}跳过助力自己`)
-                continue
-            }
-            await doHelp($.groupCode, $.shareCode, $.activityId)
-            await $.wait(1000)
-          }
-
+      for (let helpItem in helpInfo) {
+        $.groupCode = helpInfo[helpItem].groupCode
+        $.shareCode = helpInfo[helpItem].shareCode
+        $.activityId = helpInfo[helpItem].activityId
+        if ($.UserName === helpItem) {
+          console.log(`${$.UserName}跳过助力自己`)
+          continue
+        }
+        await doHelp($.groupCode, $.shareCode, $.activityId)
+        await $.wait(1000)
+      }
     }
   }
 
@@ -124,6 +115,7 @@ function getShareCode () {
             data = JSON.parse(data.replace(/jsonp_\d*_\d*\(/, '').replace(/\);?/, ''))
             let { groupCode, shareCode, sumBeanNumStr, activityMsg: { activityId }} = data.data
             helpInfo[$.UserName] = {groupCode, shareCode, sumBeanNumStr, activityId}
+            console.log(helpInfo[$.UserName])
             resolve()
         })
     })
