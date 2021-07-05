@@ -12,10 +12,10 @@ export lsjdh="jdAward4" ##兑换牛奶
 =================================Quantumultx=========================
 [task_local]
 #京东零食街
-10 11 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_lsj.js, tag=京喜财富岛提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+10 11 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_lsj.js, tag=京东零食街, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "10 11 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_lsj.js,tag=京喜财富岛提现
+cron "10 11 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_lsj.js,tag=京东零食街
 ===================================Surge================================
 京东零食街 = type=cron,cronexp="10 11 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_lsj.js
 ====================================小火箭=============================
