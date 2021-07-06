@@ -50,6 +50,7 @@ $.shareuuid = []
         }
         for (let i = 0; i < cookiesArr.length; i++) {
             cookie = cookiesArr[i];
+            await $.wait(2000)
             if (cookie) {
                 $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
                 $.index = i + 1;
