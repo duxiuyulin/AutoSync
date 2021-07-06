@@ -1,12 +1,21 @@
 /*
-更新地址：https://raw.githubusercontent.com/Wenmoux/scripts/wen/jd/jd_ddnc_farmpark.js
-号1默认给wuzhi助力 后续号给号1
-入口 https://lzdz-isv.isvjcloud.com/dingzhi/hisense/europeancup/activity/7431935?activityId=901100032442101)
-============Quantumultx===============
+欧洲狂欢杯
+活动地址: https://lzdz-isv.isvjcloud.com/dingzhi/hisense/europeancup/activity/7431935?activityId=901100032442101
+活动时间：6.21-7.12
+更新时间：2021-07-4 12:00
+脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
+=================================Quantumultx=========================
 [task_local]
 #欧洲狂欢杯
-57 59 9  * * * https://raw.githubusercontent.com/Wenmoux/scripts/wen/jd/jd_europeancup.js, tag=欧洲狂欢杯, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
-*/
+59 9 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_europeancup.js, tag=欧洲狂欢杯, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+=================================Loon===================================
+[Script]
+cron "59 9 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_europeancup.js,tag=欧洲狂欢杯
+===================================Surge================================
+欧洲狂欢杯 = type=cron,cronexp="59 9 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_europeancup.js
+====================================小火箭=============================
+欧洲狂欢杯 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_europeancup.js, cronexpr="59 9 * * *", timeout=3600, enable=true
+ */
 const $ = new Env('狂欢欧洲杯');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
