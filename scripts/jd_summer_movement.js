@@ -151,8 +151,7 @@ if ($.isNode()) {
     }catch (e) {}
     if(!res){res = [];}
   }
-  let allCodeList = getRandomArrayElements([ ...res],[ ...res].length);
-  allCodeList=[...$.byInviteList,...allCodeList];
+  let allCodeList=[...$.byInviteList,...res];
   if(allCodeList.length >0){
     console.log(`\n******开始助力百元守卫战*********\n`);
     for (let i = 0; i < cookiesArr.length; i++) {
