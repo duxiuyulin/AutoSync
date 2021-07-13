@@ -997,11 +997,11 @@ function requireConfig() {
     return new Promise(resolve => {
         console.log(`开始获取${$.name}配置文件\n`);
         let shareCodes = [];
-        if ($.isNode() && process.env.JDCFD_SHARECODES) {
-            if (process.env.JDCFD_SHARECODES.indexOf('\n') > -1) {
-                shareCodes = process.env.JDCFD_SHARECODES.split('\n');
+        if ($.isNode() && process.env.CFD_SHARECODES) {
+            if (process.env.CFD_SHARECODES.indexOf('\n') > -1) {
+                shareCodes = process.env.CFD_SHARECODES.split('\n');
             } else {
-                shareCodes = process.env.JDCFD_SHARECODES.split('&');
+                shareCodes = process.env.CFD_SHARECODES.split('&');
             }
         }
         $.shareCodesArr = [];
