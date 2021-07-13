@@ -605,6 +605,7 @@ async function dealReturn(type, data) {
         }
         console.log(data.data.bizMsg);
       }else{
+        $.canHelp = false;
         console.log(JSON.stringify(data));
       }
       //console.log(`助力结果\n${JSON.stringify(data)}`)
