@@ -100,11 +100,11 @@ async function cfd() {
             }
         }
 
-        // const beginInfo = await getUserInfo(false);
-        // if (beginInfo.Fund.ddwFundTargTm === 0) {
-        //     console.log(`还未开通活动，请先开通\n`)
-        //     return
-        // }
+        const beginInfo = await getUserInfo(false);
+        if (beginInfo.Fund.ddwFundTargTm === 0) {
+            console.log(`还未开通活动，请先开通\n`)
+            return
+        }
 
         await cashOutQuali()
         await userCashOutState()
