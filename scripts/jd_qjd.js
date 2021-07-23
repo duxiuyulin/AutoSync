@@ -79,7 +79,6 @@ const JD_API_HOST = 'https://car-member.jd.com/api/';
                 $.shareCode = helpItem.shareCode
                 $.activityId = helpItem.activityId
                 if ($.UserName === helpItem.userName) {
-                    console.log(`${$.UserName}跳过助力自己`)
                     continue
                 }
                 if ($.groupCode === undefined) {
@@ -88,6 +87,7 @@ const JD_API_HOST = 'https://car-member.jd.com/api/';
                 if (!$.helpStatus) {
                     continue
                 }
+                console.log(`${$.UserName}助力-》》 ${helpItem.userName}`)
                 await doHelp($.groupCode, $.shareCode, $.activityId)
                 await $.wait(1000)
 
@@ -160,7 +160,9 @@ function getShareCode() {
             data = JSON.parse(data.replace(/jsonp_\d*_\d*\(/, '').replace(/\);?/, ''))
             let {groupCode, shareCode, sumBeanNumStr, activityMsg: {activityId}} = data.data
             helpInfo.push({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
-            console.log("助力码：",{groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
+            console.log("===========助力码===========\n ")
+            console.log({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
+            console.log("===========助力码===========\n ")
             resolve()
         })
     })
