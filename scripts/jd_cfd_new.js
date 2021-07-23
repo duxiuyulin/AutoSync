@@ -125,9 +125,7 @@ async function run() {
         // 故事会
         await StoryInfo()
         // 建筑升级
-        if($.BuildLvlUp){
-            await buildList()
-        }
+        await buildList()
         // 签到 邀请奖励
         await sign()
         // 捡垃圾
@@ -273,7 +271,7 @@ async function buildList(){
                 if(GetBuildInfo) msg += ` 升级->需要金币:${GetBuildInfo.ddwNextLvlCostCoin} 获得财富:${GetBuildInfo.ddwLvlRich}`
                 console.log(msg)
                 await $.wait(1000)
-                if(GetBuildInfo.dwCanLvlUp > 0){
+                if(GetBuildInfo.dwCanLvlUp > 0 && $.BuildLvlUp){
                     console.log(`${item.dwLvl == 0 && '开启' || '升级'}${title}`)
                     if(item.dwLvl == 0){
                         await taskGet(`user/createbuilding`, stk, additional)
