@@ -164,7 +164,7 @@ function getShareCode() {
             data = JSON.parse(data.replace(/jsonp_\d*_\d*\(/, '').replace(/\);?/, ''))
             let {groupCode, shareCode, sumBeanNumStr, activityMsg: {activityId}} = data.data
             helpInfo.push({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
-            console.log(helpInfo)
+            console.log("助力码：",{groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
             resolve()
         })
     })
