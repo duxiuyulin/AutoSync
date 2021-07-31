@@ -220,8 +220,7 @@ function help(rid, inviter, type, helpother) {
                         } else if (data.data.helpResult.code === 16011) {
                             $.needhelp = false
                         }else if (data.data.helpResult.code === 0){
-                            $.needhelp = false
-                            console.log("助力成功! 助力金额:" + data.data.helpResult.amount)
+                            console.log("助力成功! 助力金额:" + data.data.helpResult.data.amount)
                         }
                     } else {
                       console.log(JSON.stringify(data))
