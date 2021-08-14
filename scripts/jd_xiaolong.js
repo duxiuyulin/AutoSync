@@ -19,14 +19,14 @@ gua_xiaolong_luckydraw="false"
 =================================Quantumultx=========================
 [task_local]
 #骁龙品牌日
-10 3-20/1 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js, tag=骁龙品牌日, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+18 9,19 13-25 8 * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js, tag=骁龙品牌日, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "10 3-20/1 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js,tag=骁龙品牌日
+cron "18 9,19 13-25 8 *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js,tag=骁龙品牌日
 ===================================Surge================================
-骁龙品牌日 = type=cron,cronexp="10 3-20/1 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js
+骁龙品牌日 = type=cron,cronexp="18 9,19 13-25 8 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js
 ====================================小火箭=============================
-骁龙品牌日 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js, cronexpr="10 3-20/1 * * *", timeout=3600, enable=true
+骁龙品牌日 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_xiaolong.js, cronexpr="18 9,19 13-25 8 *", timeout=3600, enable=true
  */
 const $ = new Env('骁龙品牌日');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
