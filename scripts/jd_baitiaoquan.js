@@ -70,10 +70,6 @@ let prize =
       cookieExpire = false;
       lackCoin = false;
       await queryCouponsNotGroup()
-      if (cookieExpire) {
-        $.msg($.name, '提示：请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
-        continue;
-      }
       await Promise.all([
         queryCouponCenter(),
         gateFloorById(),
@@ -229,10 +225,6 @@ function queryCouponsNotGroup(timeout = 0) {
         try {
           if (printDetail) console.log(data);
           data = JSON.parse(data);
-          if (data.resultData.result.code !== "0000") {
-            cookieExpire = true
-            return
-          }
           for (let i = data.resultData.floorInfo.length - 1;i >= 0 ;i--){
             if (data.resultData.floorInfo[i].couponStatus === "2") {
               if ($.prize["dailyCoupon"].match(/不符合活动参与规则/)) {
