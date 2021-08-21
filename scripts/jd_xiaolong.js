@@ -97,6 +97,9 @@ async function run(){
       console.log('获取不到[actorUuid]退出执行，请重新执行')
       return
     }
+    console.log('==========================')
+    console.log('actorUuid : '+ $.actorUuid)
+    console.log('==========================')
     await $.wait(1000)
     $.log("关注: " + $.hasFollowShop)
     if(!$.hasFollowShop) await followShop();
