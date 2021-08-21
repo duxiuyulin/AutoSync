@@ -180,6 +180,7 @@ async function healthyDay_getHomeData(type = true) {
                                         }
                                     } else if (vo.taskType === 14) {
                                         console.log(`【京东账号${$.index}（${$.UserName}）的${appName}好友互助码】${vo.assistTaskDetailVo.taskToken}\n`)
+                                        console.log(`【京东账号${$.index}（${$.UserName}）的${appName}好友appId】${appId}\n`)
                                         if (vo.times !== vo.maxTimes) {
                                             $.shareCode.push({
                                                 "code": vo.assistTaskDetailVo.taskToken,
