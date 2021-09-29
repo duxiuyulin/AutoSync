@@ -134,7 +134,7 @@ async function showMsg() {
         else if ($.isPlusVip != 1 && !$.JingXiang)
             ReturnMessage += `${$.levelName}|会员\n`;
     }
-    if ($.JingXiang) ReturnMessage += ` ${$.JingXiang}\n`;
+    if ($.JingXiang) ReturnMessage += `${$.JingXiang}\n`;
 
   ReturnMessage+=`今日收支：${$.todayIncomeBean}京豆 🐶 - ${$.todayOutcomeBean}京豆\n`;
   ReturnMessage+=`昨日收支：${$.incomeBean}京豆 🐶 - ${$.expenseBean}京豆\n`;;
