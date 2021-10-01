@@ -3,6 +3,9 @@
 # 京东手机狂欢城 助力
 0 0,6 9-28 8 * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
+# 跳跳乐瓜分京豆(9.13-9.19)
+11 1,12,22 * 9 * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
+
 # 天天优惠大乐透
 9 0 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
 
