@@ -169,6 +169,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
     if (unblocks.split(",").indexOf(ck_num) != -1) {
+      console.log('\n该cookie的失效通知，允许推送');
       await Promise.all([
         serverNotify(text, desp),//微信server酱
         pushPlusNotify(text, desp)//pushplus(推送加)
@@ -196,6 +197,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
     if (unblocks.split(",").indexOf(ck_num) != -1) {
+      console.log('\n该cookie的失效通知，允许推送');
       await Promise.all([
         BarkNotify(text, desp, params),//iOS Bark APP
         tgBotNotify(text, desp),//telegram 机器人
