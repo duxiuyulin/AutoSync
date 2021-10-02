@@ -164,7 +164,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
       serverNotify(text, desp),//微信server酱
       pushPlusNotify(text, desp)//pushplus(推送加)
     ])
-  }else if (unblock_ck && text.indexOf("cookie已失效") != -1) {
+  }else if (unblock_ck !== 'false' && text.indexOf("cookie已失效") != -1) {
     unblocks = process.env.my_unblock ?? "";
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
@@ -192,7 +192,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
       wxBOT(text, desp)//微信机器人
       //CoolPush(text, desp)//QQ酷推
     ])
-  }else if (unblock_ck && text.indexOf("cookie已失效") != -1) {
+  }else if (unblock_ck !== 'false' && text.indexOf("cookie已失效") != -1) {
     unblocks = process.env.my_unblock ?? "";
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
