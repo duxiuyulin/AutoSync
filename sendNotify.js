@@ -159,12 +159,12 @@ if (process.env.WX_BOT) {
 async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学习') {
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
-  if (!unblock_ck || text.indexOf("cookie已失效") == -1) {
+  if (!unblock_ck || (text.indexOf("cookie已失效") == -1 && desp.indexOf("请重新登录获取cookie") == -1)) {
     await Promise.all([
       serverNotify(text, desp),//微信server酱
       pushPlusNotify(text, desp)//pushplus(推送加)
     ])
-  }else if (unblock_ck !== 'false' && text.indexOf("cookie已失效") != -1) {
+  }else if (unblock_ck != 'false' && (text.indexOf("cookie已失效") != -1 || desp.indexOf("请重新登录获取cookie") != -1)) {
     unblocks = process.env.my_unblock ?? "";
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
@@ -181,7 +181,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
  
   //由于上述两种微信通知需点击进去才能查看到详情，故text(标题内容)携带了账号序号以及昵称信息，方便不点击也可知道是哪个京东哪个活动
   text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
-  if (!unblock_ck || text.indexOf("cookie已失效") == -1) {
+  if (!unblock_ck || (text.indexOf("cookie已失效") == -1 && desp.indexOf("请重新登录获取cookie") == -1)) {
     await Promise.all([
       BarkNotify(text, desp, params),//iOS Bark APP
       tgBotNotify(text, desp),//telegram 机器人
@@ -192,7 +192,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
       wxBOT(text, desp)//微信机器人
       //CoolPush(text, desp)//QQ酷推
     ])
-  }else if (unblock_ck !== 'false' && text.indexOf("cookie已失效") != -1) {
+  }else if (unblock_ck != 'false' && (text.indexOf("cookie已失效") != -1 || desp.indexOf("请重新登录获取cookie") != -1)) {
     unblocks = process.env.my_unblock ?? "";
     let thereg = /.*账号(\d+).*/gm
     ck_num = thereg.exec(desp)[1];
