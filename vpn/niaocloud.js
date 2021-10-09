@@ -4,6 +4,14 @@
 更新时间：2021-09-29
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 cookie 格式 uid=xx; email=xx; key=xx; ip=xx; expire_in=xx
+#小鸟云
+方式一
+#export NIAO_CLOUD_COOKIES="cookie"
+方式二
+export NIAO_CLOUD_EMAIL="email"
+export NIAO_CLOUD_PWD="pwd"
+
+两种方式可以同时使用
 =================================Quantumultx=========================
 [task_local]
 #小鸟云签到
