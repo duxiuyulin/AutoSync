@@ -623,8 +623,8 @@ function userInfo() {
                   if (production['exchangeStatus'] === 3) {
                     $.log(`\n\n商品兑换已超时`)
                     if (new Date().getHours() === 9) {
-                      $.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造`)
-                      allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造${$.index !== cookiesArr.length ? '\n\n' : ''}`;
+                      $.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
+                      allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂${$.index !== cookiesArr.length ? '\n\n' : ''}`;
                     }
                   }
                   // await exchangeProNotify()
