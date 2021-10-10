@@ -64,10 +64,6 @@ const JD_API_HOST = 'https://api.m.jd.com/';
         continue
       }
       await price()
-	  
-	  
-	  
-	  
       await $.wait(2000)
     }
   }
