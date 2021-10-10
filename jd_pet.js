@@ -216,12 +216,12 @@ async function feedPetsAgain() {
       }
       const response2 = await request('initPetTown');
       $.petInfo = response2.result;
-      subTitle = $.petInfo.goodsInfo.goodsName;
+      subTitle = `【${$.petInfo.goodsInfo.goodsName}】`;
       // message += `【与爱宠相识】${$.petInfo.meetDays}天\n`;
       // message += `【剩余狗粮】${$.petInfo.foodAmount}g\n`;
     } else {
       console.log("目前剩余狗粮：【" + foodAmount + "】g,不再继续投食,保留部分狗粮用于完成第二天任务");
-      subTitle = $.petInfo.goodsInfo && $.petInfo.goodsInfo.goodsName;
+      subTitle = `【${$.petInfo.goodsInfo && $.petInfo.goodsInfo.goodsName}】`;
       // message += `【与爱宠相识】${$.petInfo.meetDays}天\n`;
       // message += `【剩余狗粮】${$.petInfo.foodAmount}g\n`;
     }
