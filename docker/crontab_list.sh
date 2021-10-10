@@ -62,6 +62,9 @@
 # 京东零食街 活动时间：年底
 11 11 * * * node /scripts/jd_lsj.js >> /scripts/logs/jd_lsj.log 2>&1
 
+# 京东金融-天天拼图
+11 0,15 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
+
 ##############长期活动##############
 
 # 签到
