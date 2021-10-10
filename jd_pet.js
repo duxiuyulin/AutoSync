@@ -107,26 +107,26 @@ async function jdPet() {
     if (initPetTownRes.code === '0' && initPetTownRes.resultCode === '0' && initPetTownRes.message === 'success') {
       $.petInfo = initPetTownRes.result;
       if ($.petInfo.userStatus === 0) {
-        $.msg($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：我的->更多工具->互动游戏-开启`, { "open-url": "openapp.jdmoble://" });
+        $.msg($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：京东APP-我的-东东萌宠-开启`, { "open-url": "openapp.jdmoble://" });
         await slaveHelp();//助力好友
-        //$.log($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：我的->更多工具->互动游戏-开启`);
+        //$.log($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：京东APP-我的-东东萌宠-开启`);
 
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：我的->更多工具->互动游戏-开启`);
+            await thenotify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n东东萌宠 活动未开启！\n请手动去京东APP开启活动\n入口：京东APP-我的-东东萌宠-开启`);
         }
 
         return
       }
       if (!$.petInfo.goodsInfo) {
-        $.msg($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n暂未选购新的商品`, { "open-url": "openapp.jdmoble://" });
+        $.msg($.name, '', `【提示】京东账号${$.index} ${$.nickName}\n暂未选择商品，请手动选择\n入口：京东APP-我的-东东萌宠`, { "open-url": "openapp.jdmoble://" });
         if ($.isNode()) {
-            await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n暂未选购新的商品`);
+            await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n暂未选择商品，请手动选择\n入口：京东APP-我的-东东萌宠`);
         }
 
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n暂未选购新的商品`);
+            await thenotify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `【提示】京东账号${$.index} ${$.nickName}\n暂未选择商品，请手动选择\n入口：京东APP-我的-东东萌宠`);
         }
 
         return
@@ -137,28 +137,28 @@ async function jdPet() {
       if ($.petInfo.petStatus === 5) {
         await slaveHelp();//可以兑换而没有去兑换,也能继续助力好友
         option['open-url'] = "openApp.jdMobile://";
-        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.petInfo.goodsInfo.goodsName}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
+        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.petInfo.goodsInfo.goodsName}已可领取\n入口：京东APP-我的-东东萌宠`, option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}已可领取`);
+          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}已可领取\n入口：京东APP-我的-东东萌宠`);
         }
 
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}已可领取`);
+            await thenotify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}已可领取\n入口：京东APP-我的-东东萌宠`);
         }
 
         return
       } else if ($.petInfo.petStatus === 6) {
         await slaveHelp();//已领取红包,但未领养新的,也能继续助力好友
         option['open-url'] = "openApp.jdMobile://";
-        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】已领取红包,但未继续领养新的物品\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
+        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】已领取红包,但未继续领养新的物品\n入口：京东APP-我的-东东萌宠`, option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n已领取红包,但未继续领养新的物品`);
+          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n已领取红包,但未继续领养新的物品\n入口：京东APP-我的-东东萌宠`);
         }
 
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n已领取红包,但未继续领养新的物品`);
+            await thenotify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}奖品已可领取`, `京东账号${$.index} ${$.nickName}\n已领取红包,但未继续领养新的物品\n入口：京东APP-我的-东东萌宠`);
         }
 
         return
