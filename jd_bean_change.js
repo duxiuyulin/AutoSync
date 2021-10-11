@@ -197,7 +197,7 @@ async function showMsg() {
   ReturnMessage+=`🧧🧧🧧🧧红包明细🧧🧧🧧🧧`;
   
   if ($.isNode() && thefs.existsSync(thepath) && thenotifyTip){
-      console.log("单账号一对一通知")
+      console.log("\n单账号一对一通知")
       let theMessage = ReturnMessage;
       theMessage += `${$.message}`;
       let thenotify = require(thepath);
