@@ -400,10 +400,8 @@ function login() {
                 } else {
                     if (data) {
                         let info = JSON.parse(data)
-                        console.log(info)
                         console.log("token: "+info.data.token)
                         okauthArr.push(info.data.token);
-                        console.log("okauthArr: "+okauthArr.length)
                     }
                 }
             } catch (e) {
