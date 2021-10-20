@@ -250,7 +250,7 @@ function city_lotteryAward() {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: `https://raw.githubusercontent.com/jiulan/helpRepository/main/json/city.json`, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `https://ghproxy.com/https://raw.githubusercontent.com/jiulan/helpRepository/main/json/city.json`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
