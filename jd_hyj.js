@@ -100,7 +100,7 @@ $.shareCodesArr = [];
                                 }
 
                                 for (var o = 0; o < tmp.length; o++) {
-                                    console.log(`\n\n ${tmp[o].title?tmp[o].title:tmp[o].shopName}`)
+                                    console.log(`${tmp[o].title?tmp[o].title:tmp[o].shopName}`)
                                     if (tmp[o].status == 1) {
                                         conti = true
                                         await travel_collectScore(tmp[o].taskToken, task.taskId)
@@ -145,7 +145,7 @@ $.shareCodesArr = [];
                             case 21:
                                 for (var o = 0; o < task.brandMemberVos.length; o++) {
                                     if (task.brandMemberVos[o].status == 1) {
-                                        console.log(`\n\n ${task.brandMemberVos[o].title}`)
+                                        console.log(`${task.brandMemberVos[o].title}`)
                                         memberUrl = task.brandMemberVos[o].memberUrl
                                         memberUrl = transform(memberUrl)
                                         await join(task.brandMemberVos[o].vendorIds, memberUrl.channel, memberUrl.shopId ? memberUrl.shopId : "")
@@ -164,7 +164,7 @@ $.shareCodesArr = [];
                 do {
                     var ret = await travel_raise()
                 } while (ret)
-                console.log(`\n\n助力码：${res.inviteId}\n`)
+                console.log(`助力码：${res.inviteId}\n`)
                 inviteId.push(res.inviteId)
             } catch (e) {
                 $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -207,7 +207,7 @@ function get_secretp() {
 
                             }
                         } else {
-                            console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
+                            console.log(`secretp失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -234,13 +234,13 @@ function travel_sign() {
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
 
-                                console.log(`\n\n 签到成功`)
+                                console.log(`签到成功`)
                                 resolve(true)
                             } else {
                                 resolve(false)
                             }
                         } else {
-                            console.log(`\n\n签到失败:${JSON.stringify(data)}\n`)
+                            console.log(`签到失败:${JSON.stringify(data)}\n`)
                             resolve(false)
                         }
                     }
@@ -268,13 +268,13 @@ function travel_raise() {
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
 
-                                console.log(`\n\n 升级成功`)
+                                console.log(`升级成功`)
                                 resolve(true)
                             } else {
                                 resolve(false)
                             }
                         } else {
-                            console.log(`\n\n升级失败:${JSON.stringify(data)}\n`)
+                            console.log(`升级失败:${JSON.stringify(data)}\n`)
                             resolve(false)
                         }
                     }
@@ -302,10 +302,10 @@ function travel_collectAtuoScore() {
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
 
-                                console.log(`\n\n 成功领取${data.data.result.produceScore}个币`)
+                                console.log(`成功领取${data.data.result.produceScore}个币`)
                             }
                         } else {
-                            console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
+                            console.log(`secretp失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -339,7 +339,7 @@ function travel_getTaskDetail() {
                                 resolve(data.data.result)
                             }
                         } else {
-                            console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
+                            console.log(`secretp失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -369,7 +369,7 @@ function travel_collectScore(taskToken, taskId) {
                                 console.log(data.msg)
                             }
                         } else {
-                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -395,9 +395,9 @@ function qryViewkitCallbackResult(taskToken) {
                     if (safeGet(data)) {
                         if (data.indexOf("已完成") != -1) {
                             data = JSON.parse(data);
-                            console.log(`\n\n ${data.toast.subTitle}`)
+                            console.log(`${data.toast.subTitle}`)
                         } else {
-                            console.log(`\n\n失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}`)
                         }
                     }
                 }
@@ -427,16 +427,16 @@ function travel_getBadgeAward(taskToken) {
                                 for (let i = 0; i < data.data.result.myAwardVos.length; i++) {
                                     switch (data.data.result.myAwardVos[i].type) {
                                         case 15:
-                                            console.log(`\n\n 获得${data.data.result.myAwardVos[i].pointVo.score}币?`)
+                                            console.log(`获得${data.data.result.myAwardVos[i].pointVo.score}币?`)
                                             break
                                         case 1:
-                                            console.log(`\n\n 获得优惠券 满${data.result.myAwardVos[1].couponVo.usageThreshold}-${data.result.myAwardVos[i].couponVo.quota}  ${data.result.myAwardVos[i].couponVo.useRange}`)
+                                            console.log(`获得优惠券 满${data.result.myAwardVos[1].couponVo.usageThreshold}-${data.result.myAwardVos[i].couponVo.quota}  ${data.result.myAwardVos[i].couponVo.useRange}`)
                                             break
                                     }
                                 }
                             }
                         } else {
-                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -466,7 +466,7 @@ function travel_getFeedDetail(taskId) {
                                 resolve(data.data.result.addProductVos[0])
                             }
                         } else {
-                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -496,7 +496,7 @@ function travel_getFeedDetail2(taskId) {
                                 resolve(data.data.result.taskVos[0])
                             }
                         } else {
-                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
@@ -533,9 +533,9 @@ function join(venderId, channel, shopId) {
                 } else {
                     if (safeGet(data)) {
                         if (data.indexOf("成功") != -1) {
-                            console.log(`\n\n 入会成功\n`)
+                            console.log(`入会成功\n`)
                         } else {
-                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                            console.log(`失败:${JSON.stringify(data)}\n`)
                         }
                     }
                 }
