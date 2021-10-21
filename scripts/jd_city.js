@@ -35,7 +35,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let inviteCodes = []
+let inviteCodes = ['aITgwO6sQAOgeIeZW5h_1vAOmoNepJrejvDsQvNBsumV']
 let inviteCode='';
 !(async () => {
   if (!cookiesArr[0]) {
@@ -66,7 +66,7 @@ let inviteCode='';
         }
         continue
       }
-      inviteCode='';
+      inviteCode ='';
       await getInfo('',true);
       await shareCodesFormat()
       for (let i = 0; i < $.newShareCodes.length; ++i) {
