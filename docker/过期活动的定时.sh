@@ -1,8 +1,5 @@
 ####################过期活动的定时####################
 
-# 发财大赢家之翻翻乐 (9.30结束)
-20,40 * * * * node /scripts/jd_big_winner.js >> /scripts/logs/jd_big_winner.log 2>&1
-
 # 京东手机狂欢城 助力
 0 0,6 9-28 8 * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
