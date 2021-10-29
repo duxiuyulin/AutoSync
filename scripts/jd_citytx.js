@@ -9,17 +9,17 @@
 =================================Quantumultx=========================
 [task_local]
 #城城领现金提现
-0-50/3 0-3 * * *" https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js, tag=城城领现金提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+5 12 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js, tag=城城领现金提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =================================Loon===================================
 [Script]
-cron "0-50/3 0-3 * * *"" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js,tag=城城领现金提现
+cron "5 12 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js,tag=城城领现金提现
 
 ===================================Surge================================
-城城领现金提现 = type=cron,cronexp="0-50/3 0-3 * * *"",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js
+城城领现金提现 = type=cron,cronexp="5 12 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js
 
 ====================================小火箭=============================
-城城领现金提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js, cronexpr="0-50/3 0-3 * * *"", timeout=3600, enable=true
+城城领现金提现 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_citytx.js, cronexpr="5 12 * * *", timeout=3600, enable=true
  */
 
 const $ = new Env('城城领现金提现');
@@ -30,7 +30,7 @@ let JD_API_HOST = "https://api.m.jd.com/client.action";
 let mainInfos = [];
 let lotteryNum = 0;
 //是否提现红包，环境变量  JD_CITY_RED_PACKET
-let redPacket = true;
+let redPacket = $.getdata('jdCityRedPacket') || !!0;
 let hbCode = $.getdata('jdCityHbCode') || !!0;
 let withdraw =false;
 let money =10;
@@ -94,6 +94,9 @@ if ($.isNode()) {
                 await $.wait(1000)
                 console.log("开始提现" + j);
                 await city_withdraw()
+                if (jdWithdrawAmount !== 5){
+                    jdWithdrawAmount = 5
+                }
             }
 
             console.log("提现结束");
@@ -114,6 +117,7 @@ function requireConfig() {
         console.log(`开始获取${$.name}配置文件\n`);
         //Node.js用户请在jdCookie.js处填写京东ck;
         if ($.isNode()) {
+            redPacket = true
             // if (process.env.JD_CITY_RED_PACKET) {
             //     redPacket = process.env.JD_CITY_RED_PACKET || redPacket;
             // }
@@ -297,10 +301,10 @@ function city_withdraw() {
         let body = {"channel": 1, "code": code}
         //是否领无门槛红包
         if (redPacket) {
-            if (!withdraw) {
-                console.log("提现已达上限");
-                return;
-            }
+            // if (!withdraw) {
+            //     console.log("提现已达上限");
+            //     return;
+            // }
             body = {"channel": 2, "code": ""}
         }
         let option = {
