@@ -1,5 +1,8 @@
 ####################过期活动的定时####################
 
+# 城城领现金
+3 0,5,9,13,17,22 * 10 * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
+
 # 京东手机狂欢城 助力
 0 0,6 9-28 8 * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
