@@ -29,9 +29,6 @@
 # 东东超市抢京豆
 2 0,9 * 10-11 * node /scripts/jd_fission.js >> /scripts/logs/jd_fission.log 2>&1
 
-# 城城领现金
-3 0,5,9,13,17,22 * 10 * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
-
 # 集魔方 (京东APP - 新品 - 集魔方)
 25 0,13 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
 
