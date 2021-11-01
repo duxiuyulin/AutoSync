@@ -66,12 +66,7 @@ if ($.isNode()) {
 
         }
         console.log('\n入口 狗东极速版 我的 发财挖宝\n');
-        console.log('\n本脚本无任何内置助力\n如果你发现有那么就是别人二改加的\n一切与本人无关\n');
         await home()
-        console.log('\n注意全部助力给账号一\n');
-        console.log('\n注意全部助力给账号一\n');
-        console.log('\n注意全部助力给账号一\n');
-
     }
 
 
