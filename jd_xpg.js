@@ -14,7 +14,7 @@
 
 */
 
-const $ = new Env('10.20~11.13 选品官');
+const $ = new Env('选品官');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [];
