@@ -1,4 +1,22 @@
-const $ = new Env('搞基大神-发财挖宝助力');
+/*
+发财挖宝
+入口 极速版-发财挖宝
+活动时间：2021-05-25到2021-06-03
+更新时间：2021-05-24 014:55
+脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
+=================================Quantumultx=========================
+[task_local]
+#发财挖宝
+6 0-23/1 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_fcwb.js, tag=发财挖宝, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+=================================Loon===================================
+[Script]
+cron "6 0-23/1 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_fcwb.js,tag=发财挖宝
+===================================Surge================================
+发财挖宝 = type=cron,cronexp="6 0-23/1 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_fcwb.js
+====================================小火箭=============================
+发财挖宝 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_fcwb.js, cronexpr="6 0-23/1 * * *", timeout=3600, enable=true
+ */
+const $ = new Env('发财挖宝');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -6,7 +24,7 @@ const JD_API_HOST = 'https://api.m.jd.com';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 
-
+let roundList =[]
 let insertCodes = []
 let inviteCodes = []
 
@@ -47,13 +65,22 @@ if ($.isNode()) {
 
 
         }
+        roundList = []
         console.log('\n入口 狗东极速版 我的 发财挖宝\n');
-        console.log('\n本脚本无任何内置助力\n如果你发现有那么就是别人二改加的\n一切与本人无关\n');
         await home()
-        console.log('\n注意全部助力给账号一\n');
-        console.log('\n注意全部助力给账号一\n');
-        console.log('\n注意全部助力给账号一\n');
+        let data = roundList.filter(e => e.round===curRound)
 
+        if (!data[0]){
+            continue
+        }
+        console.log('当前正在通关'+curRound+'关\n')
+        for (let chunk of data[0].chunks) {
+            console.log('挖宝'+chunk.colIdx+'=='+chunk.rowIdx)
+            if (chunk.state===1){
+                console.log('挖过了下一个\n')
+            }
+            await wb(curRound,chunk.colIdx,chunk.rowIdx)
+        }
     }
 
 
@@ -81,27 +108,6 @@ if ($.isNode()) {
             console.log(`\n【${$.UserName}】去助力【${code['user']}】邀请码：${code['fcwbinviteCode']}`);
             let res = await help(code['fcwbinviter'],code['fcwbinviteCode'])
         }
-
-        if(curRound==1)    {
-            for(let i=0;i<6;i++){
-                console.log('当前正在通关初级关\n'+'挖宝'+i+'次')
-                await wb(curRound,i,i)
-            }
-        }
-        if(curRound==2)    {
-            for(let i=0;i<7;i++){
-                console.log('当前正在通关中级关\n'+'挖宝'+i+'次')
-                await wb(curRound,i,i)
-            }
-        }
-        if(curRound==3)    {
-            for(let i=0;i<8;i++){
-                console.log('当前正在通关高级级关\n'+'挖宝'+i+'次')
-                await wb(curRound,i,i)
-            }
-        }
-
-
 
     }
 
@@ -171,7 +177,7 @@ function home() {
                             curRound = data.data.curRound
                             console.log('第'+curRound+'关')
 
-
+                            roundList = data.data.roundList
                             console.log(`inviteCode='${data.data.inviteCode}'`)
                             console.log(`inviter='${data.data.markedPin}'`)
                             if (data.data && data.data.inviteCode && inviteCodes.length <= 1) {
