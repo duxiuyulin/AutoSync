@@ -27,6 +27,7 @@ let cookiesArr = [], cookie = '', message;
 let roundList =[]
 let insertCodes = []
 let inviteCodes = []
+let linkId = "yCcpwTLIbY6pjaM42ACUVg"
 
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
@@ -68,18 +69,15 @@ if ($.isNode()) {
         roundList = []
         console.log('\n入口 狗东极速版 我的 发财挖宝\n');
         await home()
-        let data = roundList.filter(e => e.round===curRound)
 
+        let data = roundList.filter(e => e.round===curRound)
         if (!data[0]){
             continue
         }
         console.log('当前正在通关'+curRound+'关\n')
-        for (let chunk of data[0].chunks) {
-            console.log('挖宝'+chunk.colIdx+'=='+chunk.rowIdx)
-            if (chunk.state===1){
-                console.log('挖过了下一个\n')
-            }
+        for (let chunk of data[0].chunks.filter(e => e.state !==1)) {
             await wb(curRound,chunk.colIdx,chunk.rowIdx)
+            await $.wait(1000)
         }
     }
 
@@ -106,6 +104,7 @@ if ($.isNode()) {
             if ($.UserName === code['user']) continue;
             if ($.index === 1 &&2) break
             console.log(`\n【${$.UserName}】去助力【${code['user']}】邀请码：${code['fcwbinviteCode']}`);
+            await $.wait(1000)
             let res = await help(code['fcwbinviter'],code['fcwbinviteCode'])
         }
 
@@ -122,22 +121,8 @@ if ($.isNode()) {
 function wb(round,rowIdx,colIdx) {
 
     return new Promise((resolve) => {
-
-
-        const nm= {
-            url: `${JD_API_HOST}/?functionId=happyDigDo&body={"round":${curRound},"rowIdx":${rowIdx},"colIdx":${colIdx},"linkId":"yCcpwTLIbY6pjaM42ACUVg"}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
-
-            headers: {
-
-                "Cookie": cookie,
-                "Origin": "https://api.m.jd.com",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-
-            }
-        }
-
-
-        $.get(nm, async (err, resp, data) => {
+        let body = {"round":curRound,"rowIdx":rowIdx,"colIdx":colIdx,"linkId":linkId}
+        $.get(taskurl("happyDigDo",body), async (err, resp, data) => {
 
             try {
                 if (err) {
@@ -146,11 +131,22 @@ function wb(round,rowIdx,colIdx) {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                        if(data.success==true){
-                            console.log(`挖到${data.data.chunk.value}`)
+                        if(data.success === true){
+                            if(data.data.chunk.type ===4 ){
+                                console.log(`挖到炸弹  哦嚯`)
+                            }else if(data.data.chunk.type == 1){
+                                console.log(`挖到优惠券 ${data.data.chunk.value}`)
+                            }else if(data.data.chunk.type == 2){
+                                console.log(`挖到红包 ${data.data.chunk.value}`)
+                            }else if(data.data.chunk.type == 3){
+                                console.log(`挖到现金 ${data.data.chunk.value}`)
+                            }
+
                             // console.log(`export fcwbinviter='${data.data.markedPin}'`)
-                        }else if(data.success==false){
-                            console.log(data.errMsg)}
+                        }else {
+
+                            console.log(`挖宝异常   `+data.errMsg)
+                        }
                     }
                 }
             } catch (e) {
@@ -163,7 +159,7 @@ function wb(round,rowIdx,colIdx) {
 }
 function home() {
     return new Promise((resolve) => {
-        let body = {"linkId":"yCcpwTLIbY6pjaM42ACUVg"}
+        let body = {"linkId":linkId}
         $.get(taskurl('happyDigHome',body), async (err, resp, data) => {
             // console.log(data)
             try {
@@ -204,51 +200,11 @@ function home() {
     })
 }
 
-function BROWSE_CHANNEL(taskId) {
-    return new Promise((resolve) => {
-        let body = {"linkId":"yCcpwTLIbY6pjaM42ACUVg","taskType":"BROWSE_CHANNEL","taskId":357,"channel":`${taskId}`}
-        $.get(taskurl('apTaskDetail',body), async (err, resp, data) => {
-
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`)
-                    console.log(`${$.name} API请求失败，请检查网路重试`)
-                } else {
-                    if (safeGet(data)) {
-                        data = JSON.parse(data);
-                        if(data.success==true){
-                            console.log('任务：'+data.errMsg)
-                        }else if(data.success==false){
-                            console.log('任务已经完成')}
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve(data);
-            }
-        })
-    })
-}
 
 function help(a,b) {
     return new Promise((resolve) => {
-
-        const nm= {
-            url: `${JD_API_HOST}/?functionId=happyDigHelp&body={"linkId":"yCcpwTLIbY6pjaM42ACUVg","inviter":"${a}","inviteCode":"${b}"}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
-
-            headers: {
-
-                "Cookie": cookie,
-                "Origin": "https://api.m.jd.com",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-
-            }
-        }
-
-
-
-        $.get(nm, async (err, resp, data) => {
+        let body = {"linkId":linkId,"inviter":a,"inviteCode":b}
+        $.get(taskurl("happyDigHelp",body), async (err, resp, data) => {
 
             try {
                 if (err) {
