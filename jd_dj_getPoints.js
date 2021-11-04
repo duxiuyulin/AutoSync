@@ -6,7 +6,7 @@
 //TG群:https://t.me/passerbyb2021
 
 //[task_local]
-//7 */1 * * * https://raw.githubusercontent.com/passerby-b/JDDJ/main/jddj_getPoints.js
+7 */1 * * * jd_dj_getPoints.js
 
 
 //[Script]
