@@ -1,7 +1,7 @@
 
 /**
 集魔方 (京东APP - 新品 - 集魔方)
-cron 11 10 * * * jd_mofang.js
+25 0,13 * * * jd_mofang.js
 TG:https://t.me/sheeplost
 */
 const $ = new Env('集魔方');
