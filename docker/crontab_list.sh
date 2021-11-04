@@ -154,7 +154,7 @@
 # 京东月资产变动通知
 10 9 * * 1 node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1
 # 京东试用
-16 8 * * * node /scripts/jd_try.js >> /scripts/logs/jd_try.log 2>&1
+16 2 * * * node /scripts/jd_try.js >> /scripts/logs/jd_try.log 2>&1
 # 东东超市兑换奖品
 59 23 * * * node /scripts/jd_blueCoin.js >> /scripts/logs/jd_blueCoin.log 2>&1
 # 摇京豆
