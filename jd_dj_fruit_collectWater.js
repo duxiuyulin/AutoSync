@@ -5,7 +5,7 @@
 boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/JD/passerby-b.boxjs.json
 TG群:https://t.me/passerbyb2021
 [task_local]
-5 */1 * * * jd_dj_fruit_collectWater.js
+//5 */1 * * * jd_dj_fruit_collectWater.js
 */
 
 //================Loon==============
