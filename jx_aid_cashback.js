@@ -1,4 +1,4 @@
-/*
+/**
 11 */6 * * * jx_aid_cashback.js
 */
 
