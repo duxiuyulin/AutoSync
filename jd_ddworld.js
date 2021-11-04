@@ -1,6 +1,6 @@
 /*
 * 活动地址:https://ddsj-dz.isvjcloud.com/dd-world/load_app/load_app.html
-*
+17 1,15 * * * jd_ddworld.js
 * 环境变量：兑换京豆变量：DDEXCHANGE，默认999
 * DDEXCHANGE="999"京豆从多到少兑换，先兑换1000，1000兑换完后兑换500
 * DDEXCHANGE="6"只兑换1000京豆
