@@ -7,7 +7,7 @@ TG群:https://t.me/passerbyb2021
 */
 
 //[task_local]
-// 5 */1 * * * https://raw.githubusercontent.com/passerby-b/JDDJ/main/jddj_fruit_collectWater.js
+5 */1 * * * jd_dj_fruit_collectWater.js
 
 //================Loon==============
 //[Script]
