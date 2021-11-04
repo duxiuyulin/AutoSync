@@ -1,3 +1,7 @@
+/*
+0 */8 * * * jd_exchange_joy.js
+*/
+
 let common = require("./function/common");
 let $ = new common.env('宠汪汪兑换京豆');
 let fs = require("fs");
