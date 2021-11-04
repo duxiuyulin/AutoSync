@@ -1,5 +1,7 @@
-/**
+/*
+
 11 */6 * * * jx_aid_cashback.js
+
 */
 
 let common = require("./function/common");
