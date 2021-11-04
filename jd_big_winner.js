@@ -10,7 +10,7 @@
 
 =================================Loon===================================
 [Script]
-cron "20 * * * *" script-path=jd_big_winner.js,tag=省钱大赢家之翻翻乐
+20,40 * * * * jd_big_winner.js
 
 ===================================Surge================================
 省钱大赢家之翻翻乐 = type=cron,cronexp="20 * * * *",wake-system=1,timeout=3600,script-path=jd_big_winner.js
