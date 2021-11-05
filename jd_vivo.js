@@ -3,7 +3,7 @@
 10 2,9,17 * * * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_vivo.js
 PS:无开卡，有加购，蚊子推豆子，活动结束可以瓜分
 * */
-const $ = new Env('热血心跳,狂解压');
+const $ = new Env('Phone狂制噪吧');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [];
