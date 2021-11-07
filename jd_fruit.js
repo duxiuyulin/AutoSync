@@ -100,6 +100,7 @@ const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%2
     })
 async function jdFruit() {
   subTitle = `【京东账号${$.index}】${$.nickName}`;
+
   try {
     await initForFarm();
     if ($.farmInfo.farmUserPro) {
@@ -630,7 +631,18 @@ async function turntableFarm() {
 async function getExtraAward() {
   await masterHelpTaskInitForFarm();
   if ($.masterHelpResult.code === '0') {
+
     if ($.masterHelpResult.masterHelpPeoples && $.masterHelpResult.masterHelpPeoples.length >= 5) {
+      console.log("新旧领取奖励都来一下")
+      try {
+        for (let index = 0; index < 5; index++) {
+          await $.get(taskUrl("receiveStageEnergy", '%7B%22version%22%3A14%2C%22channel%22%3A1%2C%22babelChannel%22%3A%22120%22%7D&appid=wh5'), function (err, resp, data) {
+            console.log('领助力奖励:' + resp.body);
+          })
+          await $.wait(2000);
+        }
+    
+      } catch (error) { }
       // 已有五人助力。领取助力后的奖励
       if (!$.masterHelpResult.masterGotFinal) {
         await masterGotFinishedTaskForFarm();
