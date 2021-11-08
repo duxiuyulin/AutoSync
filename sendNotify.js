@@ -166,9 +166,9 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
       let reg = new RegExp(String.raw`(${FilterNotify})`);
       checkNotify = reg.exec(desp);
       if (checkNotify) {
-        console.log('该通知，经检测需要过滤，不进行推送')
+        console.log('\n该通知，经检测需要过滤，不进行推送')
       } else {
-        //console.log('该通知，经检测不需要过滤，直接推送')
+        //console.log('\n该通知，经检测不需要过滤，直接推送')
         await Promise.all([
           serverNotify(text, desp),//微信server酱
           pushPlusNotify(text, desp)//pushplus(推送加)
@@ -187,7 +187,7 @@ async function sendNotify(text, desp, params = {}, author = '\n\n仅供用于学
         ])
       }
     } else {
-      //console.log('没有环境变量，或变量值为空，该通知直接推送')
+      //console.log('\n没有环境变量，或变量值为空，该通知直接推送')
       await Promise.all([
         serverNotify(text, desp),//微信server酱
         pushPlusNotify(text, desp)//pushplus(推送加)
