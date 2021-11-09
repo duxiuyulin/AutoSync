@@ -58,6 +58,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             console.log(`\n入口：app主页搜超级盒子\n`);
             await main()
+            await superboxSubBoxRewardPage()
         }
     };
     //去助力与开箱
@@ -87,6 +88,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 await openBox({"linkId":"DQFdr1ttvWWzn0wsQ7JDZQ","encryptPin":""});
                 await $.wait(1000);
             }
+            await superboxSubBoxRewardPage()
         }
     }
 })()
@@ -120,7 +122,7 @@ async function main() {
     }else{
         console.log(`任务全部完成`)
     }
-    await superboxSubBoxRewardPage()
+
 }
 
 //活动主页
