@@ -125,15 +125,15 @@ async function siteppM_skuOnceApply() {
     })
   })
 }
-function siteppM_appliedSuccAmount() {
+async function siteppM_appliedSuccAmount() {
   let body = {
     sid: "",
     type: "25",
     forcebot: "",
     num: 15
   }
-  return new Promise(resolve => {
-    $.post(taskUrl("siteppM_appliedSuccAmount", body), (err, resp, data) => {
+  return new Promise(async resolve => {
+    $.post(taskUrl("siteppM_appliedSuccAmount", body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
