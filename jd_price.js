@@ -44,6 +44,7 @@ const JD_API_HOST = 'https://api.m.jd.com/';
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
+  await jstoken();
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -124,15 +125,15 @@ async function siteppM_skuOnceApply() {
     })
   })
 }
-async function siteppM_appliedSuccAmount() {
+function siteppM_appliedSuccAmount() {
   let body = {
     sid: "",
     type: "25",
     forcebot: "",
     num: 15
   }
-  return new Promise(async resolve => {
-    $.post(taskUrl("siteppM_appliedSuccAmount", body), async (err, resp, data) => {
+  return new Promise(resolve => {
+    $.post(taskUrl("siteppM_appliedSuccAmount", body), (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
