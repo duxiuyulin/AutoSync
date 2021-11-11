@@ -1,3 +1,8 @@
+
+/* 
+5 0,5,15 * * * jd_fanli.js
+*/
+
 const $ = new Env('饭粒');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
