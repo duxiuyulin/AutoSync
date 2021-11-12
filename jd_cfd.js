@@ -1,7 +1,7 @@
 /*
   https://st.jingxi.com/fortune_island/index2.html
 
-18 0-23/2 * * * jd_cfd.js
+18 0,6-23/2 * * * jd_cfd.js
 
 form guagua
 */
