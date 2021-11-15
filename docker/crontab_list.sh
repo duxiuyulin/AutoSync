@@ -8,13 +8,10 @@
 # 饭粒
 5 0,5,15 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1
 
-# 电器盲盒抽京豆 (11.30?)
-13 3,10,18 * * * node /scripts/jd_vivo.js >> /scripts/logs/jd_vivo.log 2>&1
-
 # 电器盲盒抽京豆 (11.20?)
 0 1,8 1-20 11 * node /scripts/jd_dqmh.js >> /scripts/logs/jd_dqmh.log 2>&1
 
-# 手机竞猜 (不知道是什么鬼 too)
+# 牛牛福利 (不知道是什么鬼 too)
 1 0,9,19,23 * * * node /scripts/jd_nnfls.js >> /scripts/logs/jd_nnfls.log 2>&1
 
 # 手机竞猜 (不知道是什么鬼 、 2021年10月31日20:00:00-2021年11月10日 23:59:59 )
