@@ -2,7 +2,7 @@
 京喜财富岛合成生鲜
 cron 45 * * * * jd_cfd_fresh.js
 更新时间：2021-9-11
-活动入口：京喜APP-我的-京喜财富岛
+活动入口：微信京喜-我的-京喜财富岛
 
 已支持IOS双京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
