@@ -92,10 +92,10 @@ let allMessage = '';
         cookie = cookiesArr[i];
         console.log("测试抽奖")
         execute = true;
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < 10 && execute; j++) {
             await doInteractiveAssignment("test", "3pp3mvzmgcFm7mvU3S1wZihNKi1H","acexinpin0823", "3Qia2BF8oxZWEFsNdAEAuZsTXHqA", "","",{"exchangeNum":1})
         }
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < 10 && execute; j++) {
             await doInteractiveAssignment("test", "3pp3mvzmgcFm7mvU3S1wZihNKi1H","acexinpin0823", "2qZXV5kAqBJjkJmYi8C2874WyHxj", "","",{"exchangeNum":1})
         }
     }
