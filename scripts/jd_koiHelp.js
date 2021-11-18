@@ -8,15 +8,15 @@ Last Modified time: 2021-05-19 16:27:18
 ================QuantumultX==================
 [task_local]
 #锦鲤红包互助
-1 1,2,12,15,23 * * * jd_redPacket.js, tag=锦鲤红包互助, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
+1 1,2,12,15,23 * * * jd_koiHelp.js, tag=锦鲤红包互助, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_koiHelp.png, enabled=true
 ===================Loon==============
 [Script]
-cron "1 1,2,12,15,23 * * *" script-path=jd_redPacket.js, tag=锦鲤红包互助
+cron "1 1,2,12,15,23 * * *" script-path=jd_koiHelp.js, tag=锦鲤红包互助
 ===============Surge===============
 [Script]
-锦鲤红包互助 = type=cron,cronexp="1 1,2,12,15,23 * * *",wake-system=1,timeout=3600,script-path=jd_redPacket.js
+锦鲤红包互助 = type=cron,cronexp="1 1,2,12,15,23 * * *",wake-system=1,timeout=3600,script-path=jd_koiHelp.js
 ====================================小火箭=============================
-锦鲤红包互助 = type=cron,script-path=jd_redPacket.js, cronexpr="1 1,2,12,15,23 * * *", timeout=3600, enable=true
+锦鲤红包互助 = type=cron,script-path=jd_koiHelp.js, cronexpr="1 1,2,12,15,23 * * *", timeout=3600, enable=true
  */
 const $ = new Env('锦鲤红包互助');
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
