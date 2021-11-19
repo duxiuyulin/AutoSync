@@ -59,7 +59,7 @@ if ($.isNode()) {
                         await getTaskList(cookie)
                         await $.wait(2000)
                         for (let i in $.taskList){
-                            console.log($.taskList[i])
+                            // console.log($.taskList[i])
                             if($.taskList[i].taskId!==null){
                                 await saveTaskRecord(cookie,$.taskList[i].taskId,$.taskList[i].businessId,$.taskList[i].taskType)
                                 if($.sendBody){
