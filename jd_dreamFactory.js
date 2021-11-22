@@ -614,7 +614,7 @@ function userInfo() {
                 console.log(`已投入电力：${production.investedElectric}`);
                 console.log(`所需电力：${production.needElectric}`);
                 console.log(`生产进度：${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%`);
-                message += `【京东账号${$.index}】${$.nickName}\n`
+                message += `【京东账号${$.index}】${$.nickName || $.UserName}\n`
                 message += `【生产商品】${$.productName}\n`;
                 message += `【当前等级】${data.user.userIdentity} ${data.user.currentLevel}\n`;
                 message += `【生产进度】${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%\n`;
@@ -623,12 +623,12 @@ function userInfo() {
                   if (production['exchangeStatus'] === 3) {
                     $.log(`\n\n商品兑换已超时`)
                     if (new Date().getHours() === 9) {
-                      $.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
-                      allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂${$.index !== cookiesArr.length ? '\n\n' : ''}`;
+                      $.msg($.name, '', `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
+                      allMessage += `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂${$.index !== cookiesArr.length ? '\n\n' : ''}`;
 
                       if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
                           let thenotify = $.isNode() ? require(thepath) : '';
-                          await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
+                          await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}兑换已超时，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
                       }
 
                     }
@@ -639,12 +639,12 @@ function userInfo() {
                 }
                 if (production.status === 3) {
                   $.log(`\n\n商品生产已失效`)
-                  $.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
-                  allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂${$.index !== cookiesArr.length ? '\n\n' : ''}`;
+                  $.msg($.name, '', `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
+                  allMessage += `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂${$.index !== cookiesArr.length ? '\n\n' : ''}`;
 
                   if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
                       let thenotify = $.isNode() ? require(thepath) : '';
-                      await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
+                      await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}\n【超时未完成】已失效，请选择新商品进行制造\n入口：京喜APP->我的->京喜工厂`)
                   }
 
                 }
@@ -1297,26 +1297,26 @@ async function exchangeProNotify() {
       let flag = true;
       if ((exchangeEndTime - nowTimes.getTime()) <= 3600000 * 3) {
         let expiredTime = parseFloat(((exchangeEndTime - nowTimes.getTime()) / (60*60*1000)).toFixed(1))
-        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, {'open-url': jxOpenUrl, 'media-url': $.picture})
-        // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}分钟后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, { url: jxOpenUrl })
-        if ($.isNode()) allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换${$.index !== cookiesArr.length ? '\n\n' : ''}`
+        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, {'open-url': jxOpenUrl, 'media-url': $.picture})
+        // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName || $.UserName}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}分钟后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, { url: jxOpenUrl })
+        if ($.isNode()) allMessage += `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换${$.index !== cookiesArr.length ? '\n\n' : ''}`
         
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`)
+            await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}${expiredTime}小时后兑换超时\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`)
         }
 
         flag = false;
       }
       //二:在可兑换的时候，0,2,4等等小时通知一次
       if (nowHours % 2 === 0 && flag) {
-        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, {'open-url': jxOpenUrl, 'media-url': $.picture})
-        // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, { url: jxOpenUrl })
-        if ($.isNode()) allMessage += `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换${$.index !== cookiesArr.length ? '\n\n' : ''}`
+        $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, {'open-url': jxOpenUrl, 'media-url': $.picture})
+        // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName || $.UserName}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`, { url: jxOpenUrl })
+        if ($.isNode()) allMessage += `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换${$.index !== cookiesArr.length ? '\n\n' : ''}`
 
         if ($.isNode() && thefs.existsSync(thepath) && notifyTip){
             let thenotify = $.isNode() ? require(thepath) : '';
-            await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`)
+            await thenotify.sendNotify(`${$.name}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【生产商品】${$.productName}已可兑换\n【兑换截止时间】${$.exchangeEndTime}\n请速去京喜APP->我的->京喜工厂 进行兑换`)
         }
 
       }
