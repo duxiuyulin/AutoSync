@@ -86,7 +86,7 @@ if ($.isNode()) {
                 await exchangePinPinPearlState()
             }
             if (conditionList.length===0){
-                console.log(`未获取获取兑换参数 下个`)
+                console.log(`未获取到兑换参数 下个`)
                 continue
             }
             console.log(`获取变量对应参数 : `,ddwVirHb)
