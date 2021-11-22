@@ -651,16 +651,16 @@ function userInfo() {
               } else {
                 $.unActive = false;//标记是否开启了京喜活动或者选购了商品进行生产
                 if (!data.factoryList) {
-                  console.log(`【提示】京东账号${$.index}[${$.nickName}]\n京喜工厂活动未开始\n请手动去京喜APP->我的->京喜工厂 开启活动\n`);
-                  // $.msg($.name, '【提示】', `京东账号${$.index}[${$.nickName}]\n京喜工厂活动未开始\n请手动去京喜APP->我的->京喜工厂 开启活动`);
+                  console.log(`【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂活动未开始\n请手动去京喜APP->我的->京喜工厂 开启活动\n`);
+                  // $.msg($.name, `【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂活动未开始\n请手动去京喜APP->我的->京喜工厂 开启活动`);
                 } else if (data.factoryList && !data.productionList) {
-                  console.log(`【提示】京东账号${$.index}[${$.nickName}]\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品\n`)
+                  console.log(`【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品\n`)
                   let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);
                   if (nowTimes.getHours()  === 12) {
                     //如按每小时运行一次，则此处将一天12点推送1次提醒
-                    $.msg($.name, '提醒⏰', `京东账号${$.index}[${$.nickName}]\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品`);
-                    // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `京东账号${$.index}[${$.nickName}]\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品`)
-                    if ($.isNode()) allMessage += `京东账号${$.index}[${$.nickName}]\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品${$.index !== cookiesArr.length ? '\n\n' : ''}`
+                    $.msg($.name, '提醒⏰', `【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品`);
+                    // if ($.isNode()) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName || $.UserName}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品`)
+                    if ($.isNode()) allMessage += `【京东账号${$.index}】${$.nickName || $.UserName}\n京喜工厂未选择商品\n请手动去京喜APP->我的->京喜工厂 选择商品${$.index !== cookiesArr.length ? '\n\n' : ''}`
                   }
                 }
               }
