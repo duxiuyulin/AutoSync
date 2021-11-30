@@ -151,7 +151,6 @@ function signPrizeDetailList() {
                     if (safeGet(data)) {
                         data = $.toObj(data);
                         if (data.code === 0) {
-                            console.log(`gameMyCashPrize:${JSON.stringify(data)}\n`);
                             for(let item of data.data.items.filter(vo => vo.prizeType===4)){
                                 if(item.prizeStatus===0 && item.state===0){
                                     console.log(`提现${item.prizeValue}微信现金`)
