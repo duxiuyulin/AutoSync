@@ -238,62 +238,7 @@ function apCashWithDraw(id, poolBaseId, prizeGroupId, prizeBaseId) {
         })
     })
 }
-/**
- * 600 金币加速
- * @returns {Promise<unknown>}
- */
-function speedUp() {
-    return new Promise(async resolve => {
-        let body = {"linkId":linkId,"serviceName":"dayDaySignGetRedEnvelopeSignService","business":1};
 
-        const options = {
-            url: `https://api.m.jd.com/?functionId=apSpeedUp_day&body=${escape(JSON.stringify(body))}&_t=${+new Date()}&appid=activities_platform`,
-            headers: {
-                'Origin': 'https://618redpacket.jd.com',
-                'Cookie': $.cookie,
-                'Connection': `keep-alive`,
-                'Accept': `application/json, text/plain, */*`,
-                'Host': `api.m.jd.com`,
-                'X-Requested-With': `com.jd.jdlite`,
-                'User-Agent':  $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-                'Accept-Encoding': `gzip, deflate, br`,
-                'Accept-Language': `zh-CN,zh;q=0.9,en-CN;q=0.8,en;q=0.7,zh-TW;q=0.6,en-US;q=0.5`,
-                'Referer': `https://joypark.jd.com/?activityId=${linkId}&channel=wlfc5`,
-                'Sec-Fetch-Site': `same-site`,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`)
-                    console.log(`${$.name} API请求失败，请检查网路重试`)
-                } else {
-                    if (safeGet(data)) {
-                        data = $.toObj(data);
-                        if (data.code === 0) {
-                            if(data.data.retCode === 10019){
-                                taskStatus = false;
-                                console.log(`已签到加速！`)
-                            }else if (data.data.retCode === 0) {
-                                console.log(`签到加速成功！-600`)
-                            }else {
-                                taskStatus = false;
-                                console.log(`签到加速code异常！${JSON.stringify(data)}\n`)
-                            }
-                        } else {
-                            console.log(`签到加速：异常:${JSON.stringify(data)}\n`);
-                        }
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve(data);
-            }
-        })
-    })
-}
 
 function safeGet(data) {
     try {
