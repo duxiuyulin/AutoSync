@@ -64,7 +64,7 @@ if ($.isNode()) {
         }
     }
     if ($.isNode() && allMessage) {
-        await notify.sendNotify(`${$.name}`, `${allMessage}`)
+        await notify.sendNotify(`${$.name}`, `${allMessage}\n\n吹水群：https://t.me/joinchat/DrHGFt-CvcE2ZmU1`,)
     }
 })()
     .catch((e) => {
@@ -221,6 +221,7 @@ function apCashWithDraw(id, poolBaseId, prizeGroupId, prizeBaseId) {
                         if (data.code === 0) {
                             if (data.data.status === "310") {
                                 console.log(`提现成功！`)
+                                allMessage += `京东账号${$.index} ${$.UserName}汪汪乐园提现成功！\n`;
                             } else {
                                 console.log(`提现：失败:${JSON.stringify(data)}\n`);
                             }
