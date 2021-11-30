@@ -64,7 +64,7 @@ if ($.isNode()) {
         }
     }
     if ($.isNode() && allMessage) {
-        await notify.sendNotify(`${$.name}`, `${allMessage}\n\n吹水群：https://t.me/joinchat/DrHGFt-CvcE2ZmU1`,)
+        await notify.sendNotify(`${$.name}`, `${allMessage}`,{ url: 'https://t.me/joinchat/DrHGFt-CvcE2ZmU1' })
     }
 })()
     .catch((e) => {
