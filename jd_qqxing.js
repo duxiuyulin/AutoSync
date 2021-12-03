@@ -224,7 +224,7 @@ function getToken2() {
                     console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     data = JSON.parse(data);
-                    console.log(data)
+                    // console.log(data)
                     $.token2 = data['token']
                     //     console.log($.token2)
                 }
