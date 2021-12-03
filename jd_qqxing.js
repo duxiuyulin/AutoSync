@@ -95,7 +95,7 @@ $.shareuuid = "7d6b4dfb043a4ff28835daec3ee19a24"
                         await draw()
                     }
                     let exchanges =Math.floor($.foodNum/10000)
-                    console.log(`可兑换 ${exchanges} 次 20京🐶`)
+                    console.log(`可兑换 ${exchanges} 次 100京🐶`)
                     for(q = 0;q<exchanges && Exchange;q++){
                     await exchange(16)   //16是100豆，14是50豆，13是20豆
                     }
