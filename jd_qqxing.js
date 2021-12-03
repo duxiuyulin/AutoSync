@@ -102,8 +102,8 @@ $.shareuuid = "7d6b4dfb043a4ff28835daec3ee19a24"
                     await getinfo()
                     if(!Exchange){console.log("你 默认 不兑换东西,请自行进去活动兑换")}
                     message += `【京东账号${$.index}】${$.nickName || $.UserName}\n${$.cow} 兑换京🐶 ${$.exchange}  ${$.drawresult}\n`
-                    await $.wait(60*1000) 
                     console.log("休息休息~") 
+                    await $.wait(80*1000) 
                 } else {
                   $.msg($.name, "", "跑不起来了~请自己进去一次牧场")
                 }
