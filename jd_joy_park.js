@@ -129,7 +129,7 @@ async function getJoyBaseInfo(taskId = '', inviteType = '', inviterPin = '', pri
           if (printLog) {
             $.log(`等级: ${data.data.level}|金币: ${data.data.joyCoin}`);
             if (data.data.level >= 30 && $.isNode()) {
-              await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n当前等级: ${data.data.level}\n已达到单次最高等级奖励\n请前往京东极速版APP查看使用优惠券\n活动入口：京东极速版APP->我的->汪汪乐园`);
+              $.log(`【京东账号${$.index}】${$.nickName || $.UserName}\n当前等级: ${data.data.level}\n已达到单次最高等级奖励\n请前往京东极速版APP查看使用优惠券\n活动入口：京东极速版APP->我的->汪汪乐园`);
               $.log(`\n开始解锁新场景...\n`);
               await doJoyRestart()
             }
@@ -162,7 +162,7 @@ function getJoyList(printLog = false) {
               //$.wait(50);
               $.log(`id:${data.data.activityJoyList[i].id}|name: ${data.data.activityJoyList[i].name}|level: ${data.data.activityJoyList[i].level}`);
               if (data.data.activityJoyList[i].level >= 30 && $.isNode()) {
-                await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `【京东账号${$.index}】${$.nickName || $.UserName}\n当前等级: ${data.data.level}\n已达到单次最高等级奖励\n请尽快前往活动查看领取\n活动入口：京东极速版APP->汪汪乐园\n更多脚本->"https://github.com/zero205/JD_tencent_scf"`);
+                $.log(`【京东账号${$.index}】${$.nickName || $.UserName}\n当前等级: ${data.data.level}\n已达到单次最高等级奖励\n请尽快前往活动查看领取\n活动入口：京东极速版APP->汪汪乐园\n更多脚本->"https://github.com/zero205/JD_tencent_scf"`);
                 $.log(`\n开始解锁新场景...\n`);
                 await doJoyRestart()
               }
