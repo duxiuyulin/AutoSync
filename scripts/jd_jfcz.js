@@ -72,7 +72,7 @@ if ($.isNode()) {
                     break
                 }
                 await saveNeedleLevelInfo(needleLevel);
-                await $.wait(500);
+                await $.wait(3000);
             }
             await needleMyPrize()
         }
