@@ -1,6 +1,6 @@
 /*
 天天拼图
-cron 20 0,16 * * * jx_sign_xd.js
+cron 20 0,16 * * * jd_ttpt.js
 活动入口：京喜APP-我的-天天拼图
 by : https://github.com/shufflewzc/faker2/blob/main/jd_gold_sign.js
 已支持IOS双京东账号,Node.js支持N个京东账号
@@ -8,17 +8,17 @@ by : https://github.com/shufflewzc/faker2/blob/main/jd_gold_sign.js
 ============Quantumultx===============
 [task_local]
 #天天拼图
-20 0,16 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jx_sign_xd.js, tag=天天拼图, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+20 0,16 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ttpt.js, tag=天天拼图, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "20 0,16 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jx_sign_xd.js,tag=天天拼图
+cron "20 0,16 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ttpt.js,tag=天天拼图
 
 ===============Surge=================
-天天拼图 = type=cron,cronexp="20 0,16 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jx_sign_xd.js
+天天拼图 = type=cron,cronexp="20 0,16 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ttpt.js
 
 ============小火箭=========
-天天拼图 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jx_sign_xd.js, cronexpr="20 0,16 * * *", timeout=3600, enable=true
+天天拼图 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_ttpt.js, cronexpr="20 0,16 * * *", timeout=3600, enable=true
  */
 
 const $ = new Env('天天拼图');
