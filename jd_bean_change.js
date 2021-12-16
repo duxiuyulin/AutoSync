@@ -196,13 +196,14 @@ async function showMsg() {
 
   ReturnMessage+=`🧧🧧🧧🧧红包明细🧧🧧🧧🧧`;
 
+  let theMessage = ReturnMessage;
+
   ReturnMessage+=`${$.message}\n\n`;
   allMessage+=ReturnMessage;
   $.msg($.name, '', ReturnMessage , {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
 
   if ($.isNode() && thefs.existsSync(thepath) && thenotifyTip){
       console.log("\n单账号一对一通知")
-      let theMessage = ReturnMessage;
       theMessage += `${$.message}`;
       let thenotify = require(thepath);
       await thenotify.sendNotify(`${$.name}`, `${theMessage}`);
