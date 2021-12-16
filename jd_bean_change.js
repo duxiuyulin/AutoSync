@@ -195,7 +195,11 @@ async function showMsg() {
     }
 
   ReturnMessage+=`🧧🧧🧧🧧红包明细🧧🧧🧧🧧`;
-  
+
+  ReturnMessage+=`${$.message}\n\n`;
+  allMessage+=ReturnMessage;
+  $.msg($.name, '', ReturnMessage , {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
+
   if ($.isNode() && thefs.existsSync(thepath) && thenotifyTip){
       console.log("\n单账号一对一通知")
       let theMessage = ReturnMessage;
@@ -203,10 +207,6 @@ async function showMsg() {
       let thenotify = require(thepath);
       await thenotify.sendNotify(`${$.name}`, `${theMessage}`);
   }
-  
-  ReturnMessage+=`${$.message}\n\n`;
-  allMessage+=ReturnMessage;
-  $.msg($.name, '', ReturnMessage , {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
 }
 async function bean() {
   // console.log(`北京时间零点时间戳:${parseInt((Date.now() + 28800000) / 86400000) * 86400000 - 28800000}`);
