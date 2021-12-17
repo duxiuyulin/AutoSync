@@ -528,6 +528,9 @@ function TotalBean() {
 }
 function safeGet(data) {
     try {
+        if(data.indexOf('json(') === 0){
+            data = data.replace(/\n/g, "").match(new RegExp(/json.?\((.*);*\)/))[1]
+        }
         if (typeof JSON.parse(data) == "object") {
             return true;
         }
