@@ -148,6 +148,7 @@ async function rush() {
                     for (const vo of t1TaskList) {
                         $.log(`    >>>去加入${vo.name}`)
                         await getShopOpenCardInfo({ "venderId": `${vo.value}`, "channel": "401" }, vo.value)
+                        await $.wait(1000)
                         await bindWithVender({ "venderId": `${vo.value}`, "bindByVerifyCodeFlag": 1, "registerExtend": {}, "writeChildFlag": 0, "activityId": $.openCardActivityId, "channel": 401 }, vo.value)
                         await $.wait(2000)
                     }
