@@ -49,6 +49,7 @@ const len = cookiesArr.length;
             $.isLogin = true;
             $.nickName = '';
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+            await $.wait(3000);
             await main()
         }
     }
@@ -73,6 +74,7 @@ async function main() {
         if (!$.time) {
             console.log(`开始进行翻翻乐拿红包\n`)
             await gambleOpenReward();//打开红包
+            await $.wait(3000);
             if ($.canOpenRed) {
                 while (!$.canApCashWithDraw && $.changeReward) {
                     await openRedReward();
