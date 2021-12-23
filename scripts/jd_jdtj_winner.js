@@ -97,7 +97,7 @@ function gambleHomePage() {
         'Host': 'api.m.jd.com',
         'Origin': 'https://doublejoy.jd.com',
         'Accept': 'application/json, text/plain, */*',
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 9; Note9 Build/PKQ1.181203.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3149 MMWEBSDK/20211001 Mobile Safari/537.36 MMWEBID/8813 MicroMessenger/8.0.16.2040(0x28001055) Process/appbrand0 WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64 miniProgram/wxc3c2227edeffca75',
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),                'Accept-Encoding': `gzip, deflate, br`,
         'Referer': `https://doublejoy.jd.com/?activityId${linkId}`,
         'Accept-Language': 'zh-cn',
         'Cookie': cookie
