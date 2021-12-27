@@ -112,7 +112,7 @@ if ($.isNode()) {
       }
       getUA()
       await shopSign()
-      if ($.index == 1) sendmsg += `${message}`
+      if (!sendmsg) sendmsg += `${message}`
     }
   }
   await showMsg()
