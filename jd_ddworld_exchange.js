@@ -156,7 +156,7 @@ function taskPost(function_id, body) {
                     `兑换成功：数量${data.prize.setting.beans_count}`
                   );
                 } else {
-                  console.log(JSON.stringify(data));
+                  console.log(data.message);
                 }
                 break;
               default:
