@@ -72,15 +72,13 @@ $.canHelpInfo = {};
             $.itemId = item
             await takePostRequest('助力');
             await $.wait(parseInt(Math.random() * 1000 + 1000, 10))
-            if ($.toHelpMsg) {
-              if($.toHelpMsg.indexOf('可助力') > -1){
-                await takePostRequest('做任务_done');
-                await $.wait(parseInt(Math.random() * 1000 + 1000, 10))
-              }else if($.toHelpMsg.indexOf('任务已完成') > -1){
-                $.temp[t] = ''
-                break;
-              }else if($.toHelpMsg.indexOf('最多助力') > -1 || $.toHelpMsg.indexOf('火爆') > -1) break;
-            }
+            if($.toHelpMsg.indexOf('可助力') > -1){
+              await takePostRequest('做任务_done');
+              await $.wait(parseInt(Math.random() * 1000 + 1000, 10))
+            }else if($.toHelpMsg.indexOf('任务已完成') > -1){
+              $.temp[t] = ''
+              break;
+            }else if($.toHelpMsg.indexOf('最多助力') > -1 || $.toHelpMsg.indexOf('火爆') > -1) break;
           }
         }
       }
