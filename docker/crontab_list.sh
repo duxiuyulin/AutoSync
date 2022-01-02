@@ -50,9 +50,6 @@
 # 众筹许愿池 活动时间：2021-08-01到2021-12-31
 11 1,9 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
 
-# 星系牧场 #wen
-1 */2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
-
 # 特物Z 活动时间：###
 3 13,22 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
 
