@@ -110,7 +110,6 @@ if ($.isNode()) {
         }
         continue
       }
-      getUA()
       await shopSign()
       if (!sendmsg) sendmsg += `${message}`
     }
@@ -126,10 +125,10 @@ if ($.isNode()) {
 
 //开始店铺签到
 async function shopSign(){
-
   for (var j = 0; j < token.length; j++) {
     num=j+1
     if (token[j]==='') {continue}
+    getUA()
     await getvenderId(token[j])
     if (vender=='') {continue}
     await getvenderName(vender)
