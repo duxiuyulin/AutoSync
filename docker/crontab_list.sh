@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+# 城城领现金
+3 0,5,9,13,17,22 9-21 1 * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
+
 # 年货签到
 6 1,13,23 * * * node /scripts/jd_nh_sign.js >> /scripts/logs/jd_nh_sign.log 2>&1
 
