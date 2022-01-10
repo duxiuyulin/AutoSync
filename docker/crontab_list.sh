@@ -41,12 +41,6 @@
 # 发财大赢家之翻翻乐 (没看什么时候结束)
 20,40 * * * * node /scripts/jd_big_winner.js >> /scripts/logs/jd_big_winner.log 2>&1
 
-# 集魔方 (京东APP - 新品 - 集魔方)
-25 0,13 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
-
-# 京东小魔方 (9.29 24.00 结束)
-13 0,10 * * * node /scripts/jd_mf.js >> /scripts/logs/jd_mf.log 2>&1
-
 # 京喜领88元红包(9.30结束)
 0 0,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 
