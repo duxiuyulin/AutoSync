@@ -100,8 +100,6 @@
 22 9 * * * node /scripts/jd_exchangejxbeans.js >> /scripts/logs/jd_exchangejxbeans.log 2>&1
 # 京喜签到-喜豆
 6 3,11 * * * node /scripts/jx_sign_xd.js >> /scripts/logs/jx_sign_xd.log 2>&1
-# 京车会签到
-7 6,19 * * * node /scripts/jd_jchsign.js >> /scripts/logs/jd_jchsign.log 2>&1
 # 东东世界兑换
 3 0,17 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 # 京喜购物返红包助力
