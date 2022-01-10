@@ -1,5 +1,8 @@
 ####################过期活动的定时####################
 
+# 魔方兑换
+11 0,20 * * * node /scripts/jd_mf_exchange.js >> /scripts/logs/jd_mf_exchange.log 2>&1
+
 # 集魔方 (京东APP - 新品 - 集魔方)
 25 0,13 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
 
