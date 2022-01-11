@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+# 京东超级盒子
+17 2,15 9-25 1 * node /scripts/jd_cjhz.js >> /scripts/logs/jd_cjhz.log 2>&1
+
 # 头文字J 助力
 11 3,13 * * * node /scripts/jd_mpdzcar_help.js >> /scripts/logs/jd_mpdzcar_help.log 2>&1
 
