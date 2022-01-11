@@ -134,7 +134,8 @@ async function downFile () {
         https: tunnel.httpsOverHttp({
           proxy: {
             host: process.env.TG_PROXY_HOST,
-            port: process.env.TG_PROXY_PORT * 1
+            port: process.env.TG_PROXY_PORT * 1,
+            proxyAuth: process.env.TG_PROXY_AUTH,
           }
         })
       }
@@ -229,7 +230,8 @@ function downloadUrl(url = 'https://raw.githubusercontent.com/NobyDa/Script/mast
         https: tunnel.httpsOverHttp({
           proxy: {
             host: process.env.TG_PROXY_HOST,
-            port: process.env.TG_PROXY_PORT * 1
+            port: process.env.TG_PROXY_PORT * 1,
+            proxyAuth: process.env.TG_PROXY_AUTH,
           }
         })
       }
