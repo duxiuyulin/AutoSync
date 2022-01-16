@@ -196,7 +196,7 @@ let args_xh = {
             size = 1
             while(trialActivityIdList.length < args_xh.maxLength && $.isForbidden === false){
                 if($.nowTabIdIndex === args_xh.tabId.length){
-                    console.log(`tabId组已遍历完毕，不在获取商品\n`);
+                    console.log(`tabId组已遍历完毕，不再获取商品\n`);
                     break;
                 } else {
                     await try_feedsList(args_xh.tabId[$.nowTabIdIndex], $.nowPage)  //获取对应tabId的试用页面
