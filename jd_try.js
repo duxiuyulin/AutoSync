@@ -268,7 +268,7 @@ function requireConfig(){
         }
         if(typeof process.env.JD_TRY_WHITELIST === "undefined") args_xh.whiteList = false;
         else args_xh.whiteList = process.env.JD_TRY_WHITELIST === 'true';
-        if(typeof process.env.JD_TRY_PLOG === "undefined") args_xh.printLog = true;
+        if(typeof process.env.JD_TRY_PLOG === "undefined") args_xh.printLog = false;
         else args_xh.printLog = process.env.JD_TRY_PLOG === 'true';
         if(typeof process.env.JD_TRY_PASSZC === "undefined") args_xh.passZhongCao = true;
         else args_xh.passZhongCao = process.env.JD_TRY_PASSZC === 'true';
