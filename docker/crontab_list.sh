@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+# 京东超市年货日历
+22 1,13 * * * node /scripts/jd_year.js >> /scripts/logs/jd_year.log 2>&1
+
 # 萌虎摇摇乐
 0 1,10,20 * * * node /scripts/jd_mhyyl.js >> /scripts/logs/jd_mhyyl.log 2>&1
 
