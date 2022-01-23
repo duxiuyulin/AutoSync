@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+# 集魔方 (京东APP - 新品 - 集魔方)
+25 0,13 * * * node /scripts/jd_xmf.js >> /scripts/logs/jd_xmf.log 2>&1
+
 # 萌虎摇摇乐
 0 1,10,20 * * * node /scripts/jd_mhyyl.js >> /scripts/logs/jd_mhyyl.log 2>&1
 
