@@ -70,7 +70,7 @@ let args_xh = {
      * C商品原价99元，试用价1元，如果下面设置为50，那么C商品将会被加入到待提交的试用组
      * 默认为0
      * */
-    jdPrice: process.env.JD_TRY_PRICE * 1 || 100,
+    jdPrice: process.env.JD_TRY_PRICE * 1 || 50,
     /*
      * 获取试用商品类型，默认为1
      * 下面有一个function是可以获取所有tabId的，名为try_tabList
