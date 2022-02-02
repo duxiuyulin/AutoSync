@@ -2,7 +2,7 @@
 name: Repo Sync
 on: 
   schedule: 
-  - cron: '0 0 * * *' #此处为同步运行时间
+  - cron: '0 0,12 * * *' #此处为同步运行时间
   workflow_dispatch: 
   watch: 
    types: started 
@@ -11,7 +11,7 @@ on:
 jobs: 
  repo-sync: 
      env: 
-       PAT: ${{ github.event.client_payload.PAT || secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
+       PAT: ${{ github.event.client_payload.PAT || secrets.PAT }} #此处PAT需要申请
      runs-on: ubuntu-latest 
      if: github.event.repository.owner.id == github.event.sender.id 
      steps: 
