@@ -2,7 +2,7 @@
 name: Repo Sync
 on: 
   schedule: 
-  - cron: '0 0,12 * * *' #此处为同步运行时间
+  - cron: '0 14 * * *'
   workflow_dispatch: 
   watch: 
    types: started 
