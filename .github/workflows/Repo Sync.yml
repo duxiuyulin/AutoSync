@@ -18,12 +18,21 @@ jobs:
       - uses: actions/checkout@v2 
         with: 
           persist-credentials: false 
-    
+           
       - name: Repo Sync
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/qitoqito/kedaya.git" # 上游仓库地址
+          source_repo: "https://github.com/Zy143L/wskey.git" # Zy143L
+          source_branch: "main" 
+          destination_branch: "Zy143L" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+              
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/qitoqito/kedaya.git" # kedaya
           source_branch: "main" 
           destination_branch: "kedaya" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
@@ -32,7 +41,7 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/JDHelloWorld/jd_scripts.git" # 上游仓库地址
+          source_repo: "https://github.com/JDHelloWorld/jd_scripts.git" # HW
           source_branch: "main" 
           destination_branch: "JDHelloWorld" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}  
@@ -41,7 +50,7 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/star261/jd.git" # 上游仓库地址
+          source_repo: "https://github.com/star261/jd.git" # 星星
           source_branch: "main" 
           destination_branch: "star261" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
@@ -50,52 +59,17 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/smiek2221/scripts.git" # 上游仓库地址
+          source_repo: "https://github.com/smiek2121/scripts.git" # 青蛙
           source_branch: "master" 
           destination_branch: "smiek2221" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}       
-
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/jiulan/platypus.git" # 上游仓库地址
-          source_branch: "main" 
-          destination_branch: "jiulan" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
-                
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/Tsukasa007/my_script.git" # 上游仓库地址
-          source_branch: "master" 
-          destination_branch: "Tsukasa007" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}   
-              
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/zero205/JD_tencent_scf.git" # 上游仓库地址
-          source_branch: "main" 
-          destination_branch: "zero205" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}     
-            
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/KingRan/JD-Scripts.git" # 上游仓库地址
-          source_branch: "main" 
-          destination_branch: "KingRan" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}       
+     
           
       - name: Repo Sync
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/ccwav/QLScript2.git" # 上游仓库地址
+          source_repo: "https://github.com/ccwav/QLScript2.git" # CC
           source_branch: "main" 
           destination_branch: "ccwav" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
@@ -104,7 +78,142 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/Aaron-lv/sync.git" # 上游仓库地址
+          source_repo: "https://github.com/Aaron-lv/sync.git" # 小小
           source_branch: "jd_scripts" 
           destination_branch: "Aaron-lv" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/mmnvnmm/omo.git" # 小埋
+          source_branch: "master" 
+          destination_branch: "mmnvnmm" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/Ariszy/Private-Script.git" # 执意
+          source_branch: "master" 
+          destination_branch: "Ariszy" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+           
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/passerby-b/JDDJ.git" # passerby-b
+          source_branch: "main" 
+          destination_branch: "passerby-b" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+                                
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/curtinlv/JD-Script.git" # 皮卡车
+          source_branch: "main" 
+          destination_branch: "curtinlv" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/walle1798/WALL.E.git" # magic
+          source_branch: "master" 
+          destination_branch: "Meagic" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+              
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/zero205/JD_tencent_scf.git" # 刘大
+          source_branch: "main" 
+          destination_branch: "zero205" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+                    
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/jiulan/platypus.git" # jiulan
+          source_branch: "main" 
+          destination_branch: "jiulan" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+                
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/Tsukasa007/my_script.git" # T
+          source_branch: "master" 
+          destination_branch: "Tsukasa007" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}   
+                      
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/KingRan/JD-Scripts.git" # KR
+          source_branch: "main" 
+          destination_branch: "KingRan" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}       
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/cdle/carry.git" # 傻妞
+          source_branch: "main" 
+          destination_branch: "cdle" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/gys619/jdd.git" # gys619
+          source_branch: "main" 
+          destination_branch: "gys619" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/zll2317463866/tiger.git" # zll
+          source_branch: "main" 
+          destination_branch: "zll2317463866" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
+           
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/Annyoo2021/scripts.git" # Annyoo2021
+          source_branch: "main" 
+          destination_branch: "Annyoo2021" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+           
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/yuannian1112/jd_scripts.git" # 怨念
+          source_branch: "main" 
+          destination_branch: "yuannian1112" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+           
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/okyyds/onekey.git" # DDO
+          source_branch: "main" 
+          destination_branch: "YYDS" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}                    
