@@ -213,7 +213,16 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/okyyds/onekey.git" # DDO
-          source_branch: "main" 
-          destination_branch: "YYDS" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}                    
+          source_repo: "https://github.com/okyyds/yydspure.git" # DDO纯净库
+          source_branch: "master" 
+          destination_branch: "yydspure" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}      
+                     
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/okyyds/yyds.git" # DDO助力池
+          source_branch: "master" 
+          destination_branch: "yyds" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
