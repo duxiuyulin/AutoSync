@@ -673,6 +673,7 @@ function invite2() {
     "wXX9SjXOdYMWe5Ru/1+x9A==",
     "4AVQao+eH8Q8kvmXnWmkG8ef/fNr5fdejnD9+9Ugbec=",
     "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc=",
+    "w22w0sZEccp/OWxg1d20RtsryQGfghc94PsLIBqeX0E=",
     "mCvmrmFghpDCLcL3VZs53BkAhucziHAYn3HhPmURJJE="
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
@@ -705,6 +706,7 @@ function invite() {
     "wXX9SjXOdYMWe5Ru/1+x9A==",
     "4AVQao+eH8Q8kvmXnWmkG8ef/fNr5fdejnD9+9Ugbec=",
     "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc=",
+    "w22w0sZEccp/OWxg1d20RtsryQGfghc94PsLIBqeX0E=",
     "mCvmrmFghpDCLcL3VZs53BkAhucziHAYn3HhPmURJJE="
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
