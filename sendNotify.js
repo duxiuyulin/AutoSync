@@ -1676,18 +1676,15 @@ function gotifyNotify(text, desp) {
 function gobotNotify(text, desp, time = 2100) {
     return new Promise((resolve) => {
         if (GOBOT_URL) {
-            const options = {
-                url: `${GOBOT_URL}?access_token=${GOBOT_TOKEN}&${GOBOT_QQ}`,
-                json: {
-                    message: `${text}\n${desp}`
-                },
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                timeout,
-            };
+	      const options = {
+		url: `${GOBOT_URL}?access_token=${GOBOT_TOKEN}&${GOBOT_QQ}&message=标题:${encodeURIComponent(text+"\n")}内容:${encodeURIComponent(desp)}`,
+		 headers: {
+		  'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		timeout,
+	      };
             setTimeout(() => {
-                $.post(options, (err, resp, data) => {
+                $.get(options, (err, resp, data) => {
                     try {
                         if (err) {
                             console.log('发送go-cqhttp通知调用API失败！！\n');
