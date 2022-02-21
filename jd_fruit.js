@@ -103,7 +103,7 @@ async function jdFruit() {
         try {
             for (let index = 0; index < 5; index++) {
                 await $.get(taskUrl("receiveStageEnergy", '%7B%22version%22%3A14%2C%22channel%22%3A1%2C%22babelChannel%22%3A%22120%22%7D&appid=wh5'), function(err, resp, data) {
-                    console.log('领助力奖励:' + resp.body);
+                    if(resp&&resp.body)console.log('领助力奖励:' + resp.body);
                 })
                 await $.wait(2000);
             }
@@ -1068,8 +1068,8 @@ async function gotStageAwardForFarm(type) {
 }
 //浇水API
 async function waterGoodForFarm() {
-    await $.wait(1000);
-    console.log('等待了1秒');
+    await $.wait(3000);
+    console.log('等待了3秒');
 
     const functionId = arguments.callee.name.toString();
     $.waterResult = await request(functionId);
