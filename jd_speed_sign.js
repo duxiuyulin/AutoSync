@@ -27,6 +27,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let cookiesArr = [], cookie = '', message;
+let IPError = false; // 403 ip黑
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -62,6 +63,10 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
       }
       await jdGlobal()
       await $.wait(2*1000)
+      if (IPError){
+        console.log(`403 黑IP了，请换个IP`);
+        break;
+      }
     }
   }
 })()
@@ -196,6 +201,10 @@ async function taskList() {
                 } else {
                   console.log(`${task.taskInfo.mainTitle}已完成`)
                 }
+                if (IPError){
+                  console.error('API请求失败，停止执行')
+                  break
+                }
               }
             }
           }
@@ -218,6 +227,7 @@ async function doTask(taskId) {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
+          IPError = true
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -313,6 +323,7 @@ async function queryItem(activeType = 1) {
             } else {
               console.log(`商品任务开启失败，${data.message}`)
               $.canStartNewItem = false
+              IPError = true
             }
           }
         }
@@ -341,6 +352,7 @@ async function startItem(activeId, activeType) {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
+          IPError = true
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
