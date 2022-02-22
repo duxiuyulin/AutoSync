@@ -61,8 +61,8 @@ if ($.isNode()) {
             //     'c1a199579a454ce1af31fb05c96c9d67',
             //     'a3d12a74c416431fa43891412898dc96'
             // ]
-            $.authorCode = authorCodeList[random(0, authorCodeList.length)]
-            // $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
             $.activityId = 'unionkbblnt20220221dzlhkk'
