@@ -58,7 +58,7 @@ if ($.isNode()) {
           await coinDozerBackFlow()
           await getCoinDozerInfo()
           console.log('\n注意助力前三个可助力的账号\n');
-          if (inviteCodes.length >= 4) {
+          if (inviteCodes.length >= 3) {
                break
           }
      }
