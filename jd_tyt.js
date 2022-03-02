@@ -1,6 +1,7 @@
 /*
 入口 极速版 赚金币 推一推
 助力前三
+
  [task_local]
 #搞基大神-推一推
 3 1 * * * http://47.101.146.160/scripts/jd_tyt.js, tag=搞基大神-推一推, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
@@ -51,17 +52,18 @@ if ($.isNode()) {
                     continue
                }
           }
-          console.log('\n入口 极速版 赚金币 推一推\n');
+          console.log('\n入口 狗东极速版 赚金币 推一推\n');
+          console.log('\n本脚本无任何内置助力\n如果你发现有那么就是别人二改加的\n一切与本人无关\n');
           await info()
           await coinDozerBackFlow()
           await getCoinDozerInfo()
-          console.log('\n注意助力前两个可助力的账号\n');
-          if (inviteCodes.length >= 2) {
+          console.log('\n注意助力前三个可助力的账号\n');
+          if (inviteCodes.length >= 3) {
                break
           }
      }
 
-     console.log('\n#######开始助力前两个可助力的账号#######\n');
+     console.log('\n#######开始助力前三个可助力的账号#######\n');
      cookiesArr.sort(function () {
           return .5 - Math.random();
      });
