@@ -105,8 +105,8 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/passerby-b/JDDJ.git" # passerby-b
-          source_branch: "main" 
+          source_repo: "https://github.com/passerby-b/Script.git" # passerby-b
+          source_branch: "master" 
           destination_branch: "passerby-b" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
                                 
@@ -234,4 +234,22 @@ jobs:
           source_repo: "https://github.com/okyyds/yyds.git" # DDO助力池
           source_branch: "master" 
           destination_branch: "yyds" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+                     
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/shufflewzc/faker2.git" # faker2助力池
+          source_branch: "main" 
+          destination_branch: "faker2" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}  
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/shufflewzc/faker3.git" #faker3纯净库
+          source_branch: "main" 
+          destination_branch: "faker3" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
