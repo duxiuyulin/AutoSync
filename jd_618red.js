@@ -1,5 +1,6 @@
 /*
 设置了环境变量FLCODE
+有黑号风险,建议小号
 cron 0 0,10,20 * * * jd_618red.js
 * */
 const $ = new Env('618红包');
