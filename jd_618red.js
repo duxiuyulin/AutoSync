@@ -1,6 +1,6 @@
 /*
 设置了环境变量FLCODE
-cron 0 0,10,20 * * * jd_618_red.js
+cron 0 0,10,20 * * * jd_618red.js
 * */
 const $ = new Env('618红包');
 $.flCode = $.isNode() ? (process.env.FLCODE ? process.env.FLCODE : '') : '';
