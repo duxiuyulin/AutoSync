@@ -28,7 +28,7 @@ if ($.isNode()) {
     return;
   }
   authorCodeList = await getAuthorCodeList('https://raw.githubusercontent.com/okyyds/duck/master/code/lzdz1.json')
-  console.log(authorCodeList)
+  // console.log(authorCodeList)
   if ($.getAuthorCodeListerr === false) {
       authorCodeList = [
         'ce70b442586945668414fde6d813ab86',
