@@ -100,16 +100,7 @@ jobs:
           source_branch: "master" 
           destination_branch: "Ariszy" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
-           
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/passerby-b/Script.git" # passerby-b
-          source_branch: "master" 
-          destination_branch: "passerby-b" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
-                                
+                       
       - name: Repo Sync
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
@@ -199,16 +190,7 @@ jobs:
           source_branch: "main" 
           destination_branch: "zll2317463866" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
-           
-      #- name: Repo Sync
-        #uses: repo-sync/github-sync@v2 
-        #if: env.PAT 
-        #with: 
-          #source_repo: "https://github.com/Annyoo2021/scripts.git" # Annyoo2021
-          #source_branch: "main" 
-          #destination_branch: "Annyoo2021" # 按照自己仓库分支名称修改
-          #github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
-           
+         
       - name: Repo Sync
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
