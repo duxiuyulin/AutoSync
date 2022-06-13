@@ -222,7 +222,7 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/okyyds/yydspure.git" # DDO纯净库
+          source_repo: "https://github.com/okyyds/yydspure.git" # 可达鸭纯净库
           source_branch: "master" 
           destination_branch: "yydspure" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}      
@@ -231,7 +231,7 @@ jobs:
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
         with: 
-          source_repo: "https://github.com/okyyds/yyds.git" # DDO助力池
+          source_repo: "https://github.com/okyyds/yyds.git" # 可达鸭助力池
           source_branch: "master" 
           destination_branch: "yyds" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
@@ -253,3 +253,31 @@ jobs:
           source_branch: "main" 
           destination_branch: "faker3" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/leafTheFish/DeathNote.git" #leaf
+          source_branch: "main" 
+          destination_branch: "leaf" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://github.com/LingFeng0918/LF_JD.git" #linfeng
+          source_branch: "main" 
+          destination_branch: "lingfeng" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+          
+      - name: Repo Sync
+        uses: repo-sync/github-sync@v2 
+        if: env.PAT 
+        with: 
+          source_repo: "https://hub.fastgit.xyz/hyzaw/AllJDScripts.git" #ddo
+          source_branch: "master" 
+          destination_branch: "ddo" # 按照自己仓库分支名称修改
+          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+          
