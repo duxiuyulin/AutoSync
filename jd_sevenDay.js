@@ -6,7 +6,7 @@ SEVENDAY_LIST 连接类型 https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActi
 SEVENDAY_LIST2 连接类型 https://lzkj-isv.isvjcloud.com/sign/signActivity2?activityId=
 SEVENDAY_LIST3 连接类型 https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=
 多活动id & 分开
-help 帮助作者,非开卡非注册非拉新,谢谢,不想帮助 HELP 环境变量设置不是 0 就行
+help 帮助作者,非开卡非注册非拉新,谢谢,不想帮助 HELP 环境变量设置不是 0 就行 活动地址 vivo 店铺
 0 0 * * * jd_sevenDay.js
 */
 const $ = new Env('超级无线店铺签到');
