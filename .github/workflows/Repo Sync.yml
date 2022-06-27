@@ -163,16 +163,7 @@ jobs:
           source_branch: "main" 
           destination_branch: "cdle" # 按照自己仓库分支名称修改
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
-                    
-      - name: Repo Sync
-        uses: repo-sync/github-sync@v2 
-        if: env.PAT 
-        with: 
-          source_repo: "https://github.com/pangbai6/pangbai.git" # pangbai
-          source_branch: "main" 
-          destination_branch: "pangbai" # 按照自己仓库分支名称修改
-          github_token: ${{ github.event.client_payload.PAT || secrets.PAT }} 
-          
+                              
       - name: Repo Sync
         uses: repo-sync/github-sync@v2 
         if: env.PAT 
