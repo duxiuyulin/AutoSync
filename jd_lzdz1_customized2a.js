@@ -116,8 +116,8 @@ async function member() {
       if ($.openCardList) {
         for (const vo of $.openCardList) {
           // console.log(vo)
-          $.log(`>>> 去加入${vo.name} ${vo.venderId}`);
-          if (vo.openStatus == 0) {
+          $.log(`>>> 去加入 ${vo.venderId}`);
+          if (vo.openStatus === false) {
             await getShopOpenCardInfo({ venderId: `${vo.venderId}`, channel: "401" }, vo.venderId);
             await bindWithVender({ venderId: `${vo.venderId}`, bindByVerifyCodeFlag: 1, registerExtend: {}, writeChildFlag: 0, activityId: $.openCardActivityId, channel: 401 }, vo.venderId);
             // await $.wait(1000);
