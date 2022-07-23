@@ -26,7 +26,7 @@ if ($.isNode()) {
         return;
     }
 
-    for (let i = 0; i < cookiesArr.length; i++) {
+    for (let i = 0; i < 10; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i]
             originCookie = cookiesArr[i]
